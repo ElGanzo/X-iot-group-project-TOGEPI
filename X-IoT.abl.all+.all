@@ -2021,7 +2021,109 @@ ATTRIBUTE <Position>
 ATTRIBUTE <External tool coupling>
  VALUE ""
 
+//================================================================================
 CLASS <__ModelTypeMetaData__> : <__D-construct__>
+//================================================================================
+
+CLASSATTRIBUTE <BP Model Attributes>
+	TYPE STRING
+	VALUE "NOTEBOOK
+CHAPTER \"Description\"
+ATTR \"Contact person\"
+ATTR \"Keywords\" lines:5
+ATTR \"Description\" lines:5
+ATTR \"Comment\" lines:5
+#ATTR \"Language\"
+
+GROUP \"Copyright\"
+ATTR \"Copyright info\" 
+ATTR \"Copyright info position\" 
+ENDGROUP
+
+CHAPTER \"User attributes\"
+ATTR \"Model type\"
+ATTR \"State\"
+ATTR \"Reviewed on\"
+ATTR \"Reviewed by\"
+CHAPTER \"System attributes\"
+ATTR \"Author\" write-protected
+ATTR \"Creation date\" write-protected
+ATTR \"Last user\" write-protected
+ATTR \"Date last changed\" write-protected
+ATTR \"Number of objects and relations\" write-protected
+ATTR \"Context of version\" write-protected
+CHAPTER \"Change history\"
+ATTR \"Change history\" lines:30
+"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <WE Model Attributes>
+	TYPE STRING
+	VALUE "NOTEBOOK
+CHAPTER \"Description\"
+ATTR \"Contact person\"
+ATTR \"Keywords\" lines:5
+ATTR \"Description\" lines:5
+ATTR \"Comment\" lines:5
+#ATTR \"Language\"
+GROUP \"Copyright\"
+ATTR \"Copyright info\" 
+ATTR \"Copyright info position\" 
+ENDGROUP
+CHAPTER \"User attributes\"
+ATTR \"Model type\"
+ATTR \"State\"
+ATTR \"Reviewed on\"
+ATTR \"Reviewed by\"
+CHAPTER \"System attributes\"
+ATTR \"Author\" write-protected
+ATTR \"Creation date\" write-protected
+ATTR \"Last user\" write-protected
+ATTR \"Date last changed\" write-protected
+ATTR \"Number of objects and relations\" write-protected
+ATTR \"Context of version\" write-protected
+CHAPTER \"Change history\"
+ATTR \"Change history\" lines:30
+
+"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Method GraphRep>
+	TYPE LONGSTRING
+	VALUE "@INCLUDE \"db:\\\\MethodGraphrep.leo\""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <BP Model Graphrep>
+	TYPE LONGSTRING
+	VALUE "GRAPHREP layer:-1
+
 
 CLASSATTRIBUTE <ClassAbstract>
  VALUE 1
