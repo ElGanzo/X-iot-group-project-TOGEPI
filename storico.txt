@@ -1,0 +1,3 @@
+manually merged 21/9/2022
+
+-CLASSATTRIBUTE BP Model Attributes & BP Model GraphRep (da libreria Floware)
