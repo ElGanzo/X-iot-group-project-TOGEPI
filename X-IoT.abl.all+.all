@@ -2025,6 +2025,114 @@ ATTRIBUTE <External tool coupling>
 CLASS <__ModelTypeMetaData__> : <__D-construct__>
 //================================================================================
 
+ATTRIBUTE <Export>
+ TYPE PROGRAMCALL
+
+FACET <EnumerationDomain>
+ VALUE "ITEM \"Export files\"
+
+EXPORT_PSM"
+
+FACET <MultiLineString>
+ VALUE 0
+
+FACET <AttributeHelpText>
+ VALUE ""
+
+FACET <AttributeRegularExpression>
+ VALUE ""
+
+ATTRIBUTE <Export>
+ VALUE "Export files"
+
+//=======================================
+
+
+ATTRIBUTE <IoTPlatform AttrRep>
+ TYPE LONGSTRING
+ VALUE "NOTEBOOK
+CHAPTER \"Description\"
+ATTR \"Model Type\" write-protected
+
+MODE \"PSM\"
+ATTR \"Platform\" write-protected
+"
+
+FACET <MultiLineString>
+ VALUE 0
+
+FACET <AttributeHelpText>
+ VALUE ""
+
+FACET <AttributeRegularExpression>
+ VALUE ""
+
+
+//=======================================
+
+
+ATTRIBUTE <Logic>
+ TYPE ATTRPROFREF
+
+FACET <MultiLineString>
+ VALUE 0
+
+FACET <AttributeHelpText>
+ VALUE ""
+
+FACET <AttributeRegularExpression>
+ VALUE ""
+
+FACET <AttributeProfileRefDomain>
+ VALUE "APREF c:\"Prova\""
+
+ATTRIBUTE <Logic>
+ VALUE ""
+
+
+//=======================================
+
+
+ATTRIBUTE <Model Type>
+ TYPE ENUMERATION
+
+FACET <EnumerationDomain>
+ VALUE "PIM@PSM"
+
+FACET <MultiLineString>
+ VALUE 0
+
+FACET <AttributeHelpText>
+ VALUE ""
+
+FACET <AttributeRegularExpression>
+ VALUE ""
+
+ATTRIBUTE <Model Type>
+ VALUE "PIM"
+
+
+//=======================================
+
+
+ATTRIBUTE <Platform>
+ TYPE ENUMERATION
+
+FACET <EnumerationDomain>
+ VALUE "ThingsBoard@Losant"
+
+FACET <MultiLineString>
+ VALUE 0
+
+FACET <AttributeHelpText>
+ VALUE ""
+
+FACET <AttributeRegularExpression>
+ VALUE ""
+
+ATTRIBUTE <Platform>
+ VALUE "ThingsBoard"
+
 CLASSATTRIBUTE <BP Model Attributes>
 	TYPE STRING
 	VALUE "NOTEBOOK
@@ -2124,265 +2232,2701 @@ ATTR \"Change history\" lines:30
 	TYPE LONGSTRING
 	VALUE "GRAPHREP layer:-1
 
+AVAL showModelInfo:\"Display modelling information\"
 
-CLASSATTRIBUTE <ClassAbstract>
- VALUE 1
 
-CLASSATTRIBUTE <ClassVisible>
- VALUE 1
+SET bShowModelStatus:(cond((_outdevtype != \"printer\") OR (_pageindex = 1) OR (_pagemargintype = \"\""
+	      "), 1, 0))
 
-CLASSATTRIBUTE <GraphRep>
- VALUE ""
+# IF ((showModelInfo = \"1\") AND bShowModelStatus) #ZMI Show model status always on the drawing area"
+	      "
+IF (bShowModelStatus) 
+  # [HOs 2008-04-24: Font set to Arial (see CR#1973)
+  #FONT \"Verdana\" h:8pt
+  FONT \"Arial\" h:10pt
 
-CLASSATTRIBUTE <VisibleAttrs>
- VALUE ""
+  SET cm_h_all:0.7cm
+  SET cm_h_attribute:0.45cm
+  SET cm_w_space:0.4cm
+  SET cm_h_space:0.1cm
+  SET cm_w_state:0.7cm
+  SET cm_w_openclose:0.4cm
+AVAL sStatus:\"State\"
 
-CLASSATTRIBUTE <AttrRep>
- VALUE "NOTEBOOK
+    ATTRBOX \"State\"
+
+  SET cm_w_modState:(textw + cm_w_space)
+
+
+    ATTRBOX \"Name\"
+
+
+  SET cm_w_modInfo:(textw + cm_w_space)
+  TEXTBOX \"Powered by ADOxx\"
+  SET cm_w_lastUser:(textw + cm_w_space)
+  ATTRBOX \"Date last changed\"
+  SET cm_w_lastChange:(textw + cm_w_space)
+  SET cm_w_total:(cm_w_space + cm_w_state + cm_w_space + cm_w_modState + (cm_w_space/2) + cm_w_modInf"
+	      "o + (cm_w_space / 2) + cm_w_lastUser + (cm_w_space / 2) +       cm_w_lastChange + cm_w_space)
+
+  SET cm_x_start:0.0cm
+
+
+  CLIP_ROUNDRECT x:(cm_x_start) y:0.0cm w:(cm_w_total) h:(cm_h_all) rx:0.07cm ry:0.07cm
+  BITMAP \"db:\\\\symbol_state_bg_gradient.bmp\" x:(cm_x_start) y:0.0cm w:(cm_w_total) h:(cm_h_all)
+  PEN color:$b1b1b1 w:0.05cm join:bevel style:inside-frame
+
+
+  FILL style:null
+  CLIP_OFF
+
+
+  ROUNDRECT x:(cm_x_start) y:0.0cm w:(cm_w_total) h:(cm_h_all) rx:0.07cm ry:0.07cm
+
+  FONT h:10pt
+
+
+  SET cm_x_start:(cm_x_start + cm_w_space)
+  IF (sStatus = \"In process\")
+    SET filename:\"db:\\\\symbol_state_draft.bmp\"
+    BITMAPINFO (filename)
+    BITMAP (filename) x:(cm_x_start-.1cm) y:(cm_h_space) w:(bmpwidth / 96 * 2.54cm) h:(bmpheight / 96"
+	      " * 2.54cm)
+
+  ELSIF (sStatus = \"Ready\")
+    SET filename:\"db:\\\\symbol_state_qa.bmp\"
+    BITMAPINFO (filename)
+    BITMAP (filename) x:(cm_x_start-.1cm) y:(cm_h_space) w:(bmpwidth / 96 * 2.54cm) h:(bmpheight / 96"
+	      " * 2.54cm)
+ELSE
+    SET filename:\"db:\\\\symbol_state_released.bmp\"
+    BITMAPINFO (filename)
+    BITMAP (filename) x:(cm_x_start-.1cm) y:(cm_h_space) w:(bmpwidth / 96 * 2.54cm) h:(bmpheight / 96"
+	      " * 2.54cm)
+    ENDIF
+  # [HOs 2008-04-24: Font set to Arial (see CR#1973)
+  #FONT \"Verdana\" h:8pt
+  FONT \"Arial\" h:10pt
+  SET cm_x_start:(cm_x_start + 0.7cm + cm_w_space)
+  SET cm_add_dist:0.04cm
+  SET cm_add_dist2:0.02cm
+  #Modelstate
+  PEN style:null
+
+
+  FILL style:null
+  CLIP_ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_modState "
+	      "+ cm_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm ry:0.1cm
+    GRADIENT_RECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_modState"
+	      " + cm_add_dist) h:(cm_h_attribute + cm_add_dist) style:vert
+      color2:$efefef color1:$bdbdbd
+    ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_modState + c"
+	      "m_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm ry:0.1cm
+  CLIP_OFF
+  FILL color:snow
+
+
+
+  PEN color:snow
+
+  ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space + .03cm) w:(cm_w_modState - .05cm) h:(cm_h_attribute"
+	      " - .05cm) rx:0.1cm ry:0.1cm
+  # [GSp, 2008.08.29]
+
+
+    ATTR \"State\" x:(cm_x_start + (cm_w_space / 2)) y:(cm_h_all / 2) h:c
+
+
+  SET cm_x_start:(cm_x_start + cm_w_modState + (cm_w_space / 2))
+  #Modelname  
+  PEN style:null
+
+
+
+  FILL style:null
+  CLIP_ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_modInfo +"
+	      " cm_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm ry:0.1cm
+    GRADIENT_RECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_modInfo "
+	      "+ cm_add_dist) h:(cm_h_attribute + cm_add_dist) style:vert
+      color2:$efefef color1:$bdbdbd
+    ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_modInfo + cm"
+	      "_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm ry:0.1cm
+  CLIP_OFF
+  PEN color:snow
+
+  FILL color:snow
+  ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space + 0.03cm) w:(cm_w_modInfo - 0.05cm) h:(cm_h_attribut"
+	      "e - 0.05cm) rx:0.1cm ry:0.1cm
+
+
+    ATTR \"Name\" x:(cm_x_start + (cm_w_space / 2)) y:(cm_h_all / 2) h:c
+
+
+  SET cm_x_start:(cm_x_start + cm_w_modInfo + (cm_w_space / 2))
+  #Last user
+  PEN style:null
+  FILL style:null
+  CLIP_ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_lastUser "
+	      "+ cm_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm ry:0.1cm
+    GRADIENT_RECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_lastUser"
+	      " + cm_add_dist) h:(cm_h_attribute + cm_add_dist) style:vert
+      color2:$efefef color1:$bdbdbd
+    ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_lastUser + c"
+	      "m_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm ry:0.1cm
+  CLIP_OFF
+  PEN color:snow
+
+  FILL color:snow
+  ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space + 0.03cm) w:(cm_w_lastUser - 0.05cm) h:(cm_h_attribu"
+	      "te - 0.05cm) rx:0.1cm ry:0.1cm
+  TEXT \"Powered by ADOxx\" x:(cm_x_start + (cm_w_space / 2)) y:(cm_h_all / 2) h:c
+  HOTSPOT \"_GoToAceHp_\" text:\"Visit ADOxx.org homepage\" x:(cm_x_start + (cm_w_space / 2)) y:0cm w"
+	      ":6cm h:0.7cm
+
+  SET cm_x_start:(cm_x_start + cm_w_lastUser + (cm_w_space / 2))
+  #Last change
+  PEN style:null
+  FILL style:null
+  CLIP_ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_lastChang"
+	      "e + cm_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm   ry:0.1cm
+    GRADIENT_RECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_lastChan"
+	      "ge + cm_add_dist) h:(cm_h_attribute + cm_add_dist) style:vert
+      color2:$efefef color1:$bdbdbd
+    ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_lastChange +"
+	      " cm_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm     ry:0.1cm
+  CLIP_OFF
+  PEN color:snow
+
+  FILL color:snow
+  ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space + 0.03cm) w:(cm_w_lastChange - 0.05cm) h:(cm_h_attri"
+	      "bute - 0.05cm) rx:0.1cm ry:0.1cm
+  ATTR \"Date last changed\" x:(cm_x_start + (cm_w_space / 2)) y:(cm_h_all / 2) h:c
+  SET cm_x_start:(cm_x_start + cm_w_lastChange + (cm_w_space/2))
+  #Hide model info
+  # [HOs 2008-04-24: replaced TEXT by lines because the special characters \"‹\" and \"›\" are not su"
+	      "pported by the codepage
+  # which BOC recommends for usage on Oracle: Oracle-Codepage \"WE8ISO8859P15\" (CR#2323)
+  # Font \"Arial Rounded MT Bold\" is not available on a standard Windows XP after default installati"
+	      "on (CR#2322)
+  #FONT \"Arial Rounded MT Bold\" h:15pt color:$838080
+  #TEXT \"‹\" x:0.13cm y:0.3cm w:c h:c
+  #PEN color:$838080 w:0.05cm endcap:round
+  #LINE x1:0.13cm y1:0.25cm x2:0.08cm y2:0.35cm
+  #LINE x1:0.08cm y1:0.35cm x2:0.13cm y2:0.45cm
+   #HOTSPOT \"_ToggleModelInfo_\" text:\"Hide model information\" x:0.02cm y:0.0cm w:0.18cm h:0.7cm
+ELSE   
+  IF (_outdevtype = \"drawingarea\") 
+    FILL style:null
+    CLIP_ROUNDRECT x:0.0cm y:0.0cm w:.2cm h:0.7cm rx:0.07cm ry:0.07cm
+      GRADIENT_RECT x:0.0cm y:0.0cm w:.2cm h:0.7cm style:vert
+                    color1:$efefef color2:$bdbdbd
+      PEN color:$b1b1b1 w:0.05cm join:bevel style:inside-frame
+      ROUNDRECT x:0.0cm y:0.0cm w:.2cm h:0.7cm rx:0.07cm ry:0.07cm
+    CLIP_OFF
+    # [HOs 2008-04-24: replaced TEXT by lines because the special characters \"‹\" and \"›\" are not "
+	      "supported by the codepage
+    # which BOC recommends for usage on Oracle: Oracle-Codepage \"WE8ISO8859P15\" (CR#2323)
+    # Font \"Arial Rounded MT Bold\" is not available on a standard Windows XP after default installa"
+	      "tion (CR#2322)
+    #FONT \"Arial Rounded MT Bold\" h:15pt color:$838080
+    #TEXT \"›\" x:0.1cm y:0.3cm w:c h:c
+    #PEN color:$838080 w:0.05cm endcap:round
+    #LINE x1:0.08cm y1:0.25cm x2:0.13cm y2:0.35cm
+    #LINE x1:0.13cm y1:0.35cm x2:0.08cm y2:0.45cm
+
+    #HOTSPOT \"_ToggleModelInfo_\" text:\"Show model information\" x:0.02cm y:0.0cm w:0.18cm h:0.7cm
+
+  ENDIF
+ ENDIF
+
+
+##Copyright
+GRAPHREP layer:3
+AVAL copy:\"Copyright info\"
+# SET copyright:(copy)
+ AVAL posi:\"Copyright info position\"
+ IF (posi=\"Bottom left\")
+    IF(copy = \"Edit the model attributes to display your copyright info\")
+		FONT italic
+	ENDIF
+	ATTR \"Copyright info\" x:0cm y:(h - 1cm) w:l h:b
+        FONT color:darkblue
+	TEXT (\"Powered by ADOxx\") x:0cm y:(h - 0.5cm) w:l h:b
+        FONT underline color:darkblue
+	TEXT (\"www.adoxx.org\") x:0cm y:(h) w:l h:b
+        #HOTSPOT \"_GoToAceHp_\" text:\"Visit adoxx.org homepage\" x:0cm y:(h) w:4cm h:1cm
+ ELSIF (posi = \"Bottom right\")
+    IF(copy = \"Edit the model attributes to display your copyright info\")
+		FONT italic
+	ENDIF
+	ATTR \"Copyright info\" x:(w) y:(h - 1cm) w:r h:b
+        FONT color:darkblue
+	TEXT (\"Powered by ADOxx\") x:(w) y:(h - 0.5cm) w:r h:b
+        FONT underline color:darkblue
+        TEXT (\"www.adoxx.org\") x:(w) y:(h) w:r h:b
+        #HOTSPOT \"_GoToAceHp_\" text:\"Visit adoxx.org homepage\" x:(w - 4cm) y:(h) w:4cm h:1cm
+ ELSE
+    IF(copy = \"Edit the model attributes to display your copyright info\")
+		FONT italic
+	ENDIF
+        ATTR \"Copyright info\" x:(w) y:1cm w:r h:t
+        FONT color:darkblue
+	TEXT (\"Powered by ADOxx\") x:(w) y:1.5cm w:r h:t
+        FONT underline color:darkblue
+	TEXT (\"www.adoxx.org\") x:(w) y:2.0cm w:r h:t
+#HOTSPOT \"_GoToAceHp_\" text:\"Visit adoxx.org homepage\" x:(w - 4cm) y:(h) y:1.5cm h:1cm
+ ENDIF
+##//Copyright"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <BPM Model Attributes>
+	TYPE LONGSTRING
+	VALUE "NOTEBOOK
+
+CHAPTER \"Description\"
+ATTR \"Contact person\"
+ATTR \"Keywords\" lines:5
+ATTR \"Description\" lines:5
+ATTR \"Comment\" lines:5
+#ATTR \"Language\"
+
+GROUP \"Copyright\"
+ATTR \"Copyright info\" 
+ATTR \"Copyright info position\" 
+ENDGROUP
+
+CHAPTER \"User attributes\"
+ATTR \"Model type\"
+ATTR \"State\"
+ATTR \"Reviewed on\"
+ATTR \"Reviewed by\"
+
+CHAPTER \"System attributes\"
+ATTR \"Author\" write-protected
+ATTR \"Creation date\" write-protected
+ATTR \"Last user\" write-protected
+# ATTR \"Date last changed from\" write-protected
+ATTR \"Date last changed\" write-protected
+ATTR \"Number of objects and relations\" write-protected
+ATTR \"Context of version\" write-protected
+
+CHAPTER \"Change history\"
+ATTR \"Change history\" lines:30
+
+CHAPTER \"Reference overview\"
+ATTR \"Reference overview active\" ctrltype:check write-protected
+
+GROUP \"Current configuration\"
+ATTR \"Products\" ctrltype:check write-protected
+ATTR \"RACI/DEMI visualisation\" ctrltype:check write-protected
+ATTR \"Responsible role\" ctrltype:check write-protected
+ATTR \"Input/Output\" ctrltype:check write-protected
+ATTR \"Use cases\" ctrltype:check write-protected
+ATTR \"IT systems\" ctrltype:check write-protected
+ATTR \"Modelling direction\" write-protected
+ENDGROUP
+
+GROUP \"Color settings for reference overviews\"
+ATTR \"Products color\" dialog:color
+ATTR \"RACI/DEMI color\" dialog:color
+ATTR \"Responsible role color\" dialog:color
+ATTR \"Input/Output color\" dialog:color
+ATTR \"Use cases color\" dialog:color
+ATTR \"IT systems color\" dialog:color
+ENDGROUP"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <BPM Model Graphrep>
+	TYPE LONGSTRING
+	VALUE "GRAPHREP layer:-1
+AVAL set-default:\"0\" show_navigation:\"Reference overview active\"
+AVAL showModelInfo:\"Display modelling information\"
+AVAL sp:\"Language\"
+IF (sp = \"System\")
+  IF (_uilang = \"en\")
+    SET sp:\"English\"
+  ELSE
+    SET sp:\"German\"
+  ENDIF
+ENDIF
+
+IF (show_navigation = \"1\")
+
+  AVAL set-default:\"\" sp:\"Language\"
+  AVAL set-default:\"horizontal\" modDirection:\"Modelling direction\"
+
+  AVAL set-default:\"0\" show_products:\"Products\"
+  AVAL set-default:\"0\" show_demiraci:\"RACI/DEMI visualisation\"
+  AVAL set-default:\"0\" show_respRole:\"Responsible role\"
+  AVAL set-default:\"0\" show_inout:   \"Input/Output\"
+  AVAL set-default:\"0\" show_usecase: \"Use cases\"
+  AVAL set-default:\"0\" show_itsystem:\"IT systems\"
+
+  SET name:\"   Reference overview\"
+  SET name_german:\"Referenzenübersicht\"
+
+  SHADOW off
+  PEN w:0.05cm
+  FILL color:whitesmoke
+  FONT h:12pt
+
+  SET cmX:0.0cm
+  SET cmY:0.0cm
+  SET cmLaneSize:1.3cm
+  SET cmLaneSize2:2.0cm
+
+  SET cmX:0.0cm
+  SET cmY:0.5cm
+
+  IF (modDirection = \"vertical\")
+
+    IF (show_products = \"1\")
+      AVAL fill:\"Products color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+
+      FILL color:orange
+      ROUNDRECT x:(cmX + 0.45cm) y:0.6cm w:0.4cm h:0.4cm rx:0.1cm ry:0.1cm
+      FILL color:white
+      RECTANGLE x:(cmX + 0.45cm) y:0.7cm w:0.4cm h:0.2cm
+
+      TEXT \"P\" x:(cmX + 0.45cm) y:1.0cm
+      SET cmX:(cmX + cmLaneSize)
+    ENDIF
+
+    IF (show_demiraci = \"1\")
+      AVAL fill:\"RACI/DEMI color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+
+      FILL color:lightskyblue
+      ELLIPSE x:(cmX + 0.65cm) y:0.8cm rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:(cmX + 0.65cm) y:0.8cm w:c h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"D\" x:(cmX + 0.50cm) y:1.0cm
+      ELSE
+        TEXT \"R\" x:(cmX + 0.50cm) y:1.0cm
+      ENDIF
+      SET cmX:(cmX + cmLaneSize)
+
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+
+      FILL color:lightskyblue
+      ELLIPSE x:(cmX + 0.65cm) y:0.8cm rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:(cmX + 0.65cm) y:0.8cm w:c h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"E\" x:(cmX + 0.50cm) y:1.0cm
+      ELSE
+        TEXT \"A\" x:(cmX + 0.50cm) y:1.0cm
+      ENDIF
+      SET cmX:(cmX + cmLaneSize)
+
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+
+      FILL color:lightskyblue
+      ELLIPSE x:(cmX + 0.65cm) y:0.8cm rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:(cmX + 0.65cm) y:0.8cm w:c h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"M\" x:(cmX + 0.50cm) y:1.0cm
+      ELSE
+        TEXT \"C\" x:(cmX + 0.50cm) y:1.0cm
+      ENDIF
+      SET cmX:(cmX + cmLaneSize)
+
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+
+      FILL color:lightskyblue
+      ELLIPSE x:(cmX + 0.65cm) y:0.8cm rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:(cmX + 0.65cm) y:0.8cm w:c h:c
+      FONT h:12pt
+      FILL color:white
+
+      TEXT \"I\" x:(cmX + 0.55cm) y:1.0cm
+      SET cmX:(cmX + cmLaneSize)
+    ENDIF
+
+    IF (show_respRole = \"1\")
+      AVAL fill:\"Responsible role color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+      FILL color:lightskyblue
+      ELLIPSE x:(cmX + 0.65cm) y:0.8cm rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:(cmX + 0.65cm) y:0.8cm w:c h:c
+      FONT h:12pt
+      FILL color:white
+      IF (sp = \"German\")
+        TEXT \"V\" x:(cmX + 0.40cm) y:1.0cm
+      ELSE
+        TEXT \"RR\" x:(cmX + 0.50cm) y:1.0cm
+      ENDIF
+      SET cmX:(cmX + cmLaneSize)
+    ENDIF
+
+    IF (show_inout = \"1\")
+      AVAL fill:\"Input/Output color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize2) h:(h - cmY)
+
+      POLYGON 4 x1:(cmX + 0.75cm) y1:0.6cm x2:(cmX + 1.15cm) y2:0.6cm x3:(cmX + 1.15cm) y3:0.85cm x4:"
+	      "(cmX + 0.75cm) y4:1.0cm
+
+      TEXT \"In\" x:(cmX + 0.75cm) y:1.0cm
+      SET cmX:(cmX + cmLaneSize2)
+
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize2) h:(h - cmY)
+
+      POLYGON 4 x1:(cmX + 0.75cm) y1:0.6cm x2:(cmX + 1.15cm) y2:0.6cm x3:(cmX + 1.15cm) y3:0.85cm x4:"
+	      "(cmX + 0.75cm) y4:1.0cm
+
+      TEXT \"Out\" x:(cmX + 0.65cm) y:1.0cm
+      SET cmX:(cmX + cmLaneSize2)
+    ENDIF
+
+    IF (show_usecase = \"1\")
+      AVAL fill:\"Use cases color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+      FILL color:lightgray
+      ELLIPSE x:(cmX + 0.65cm) y:0.75cm rx:.2cm ry:.15cm
+      TEXT \"UC\" x:(cmX + 0.40cm) y:1.0cm
+      SET cmX:(cmX + cmLaneSize)
+    ENDIF
+
+    IF (show_itsystem = \"1\")
+      AVAL fill:\"IT systems color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+
+      FILL color:green
+      ROUNDRECT x:(cmX + 0.45cm) y:0.6cm w:0.4cm h:0.4cm rx:0.1cm ry:0.1cm
+      FILL color:white
+      RECTANGLE x:(cmX + 0.45cm) y:0.7cm w:0.4cm h:0.2cm
+
+      TEXT \"IT\" x:(cmX + 0.45cm) y:1.0cm
+      SET cmX:(cmX + cmLaneSize)
+    ENDIF
+
+    # write header
+    IF (cmX > 0.0cm)
+      FILL color:white
+
+      IF (cmX < 4.0cm)
+        RECTANGLE x:0.0cm y:0.0cm w:4.0cm h:(.5cm)
+      ELSE
+        RECTANGLE x:0.0cm y:0.0cm w:(cmX) h:(.5cm)
+      ENDIF
+
+      IF (sp = \"German\")
+        TEXT (name_german) x:0.1cm y:.0cm
+      ELSE
+        TEXT (name) x:0.1cm y:.0cm
+      ENDIF
+    ENDIF
+
+  ELSIF (modDirection = \"horizontal\")
+
+    IF (show_products = \"1\")
+      AVAL fill:\"Products color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+
+      FILL color:orange
+      ROUNDRECT x:0.1cm y:(cmY + (cmLaneSize / 2) - 0.3cm) w:0.4cm h:0.4cm rx:0.1cm ry:0.1cm
+      FILL color:white
+      RECTANGLE x:0.1cm y:(cmY + (cmLaneSize / 2) - 0.2cm) w:0.4cm h:0.2cm
+
+      TEXT \"P\" x:0.6cm y:(cmY + (cmLaneSize / 2) - 0.1cm) h:c
+      SET cmY:(cmY + cmLaneSize)
+    ENDIF
+
+    IF (show_demiraci = \"1\")
+      AVAL fill:\"RACI/DEMI color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+
+      FILL color:lightskyblue
+      ELLIPSE x:0.3cm y:(cmY + (cmLaneSize / 2)) rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:0.22cm y:(cmY + (cmLaneSize / 2)) h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"D\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ELSE
+        TEXT \"R\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ENDIF
+      SET cmY:(cmY + cmLaneSize)
+
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+
+      FILL color:lightskyblue
+      ELLIPSE x:0.3cm y:(cmY + (cmLaneSize / 2)) rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:0.22cm y:(cmY + (cmLaneSize / 2)) h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"E\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ELSE
+        TEXT \"A\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ENDIF
+      SET cmY:(cmY + cmLaneSize)
+
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+
+      FILL color:lightskyblue
+      ELLIPSE x:0.3cm y:(cmY + (cmLaneSize / 2)) rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:0.22cm y:(cmY + (cmLaneSize / 2)) h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"M\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ELSE
+        TEXT \"C\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ENDIF
+      SET cmY:(cmY + cmLaneSize)
+
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+
+      FILL color:lightskyblue
+      ELLIPSE x:0.3cm y:(cmY + (cmLaneSize / 2)) rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:0.22cm y:(cmY + (cmLaneSize / 2)) h:c
+      FONT h:12pt
+      FILL color:white
+
+      TEXT \"I\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      SET cmY:(cmY + cmLaneSize)
+    ENDIF
+
+    IF (show_respRole = \"1\")
+      AVAL fill:\"Responsible role color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+      FILL color:lightskyblue
+      ELLIPSE x:0.3cm y:(cmY + (cmLaneSize / 2)) rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:0.22cm y:(cmY + (cmLaneSize / 2)) h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"V\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ELSE
+        TEXT \"RR\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ENDIF
+      SET cmY:(cmY + cmLaneSize)
+
+    ENDIF
+
+    IF (show_inout = \"1\")
+      AVAL fill:\"Input/Output color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize2)
+
+      POLYGON 4 x1:0.1cm y1:(cmY + (cmLaneSize2 / 2) - 0.2cm) x2:0.5cm y2:(cmY + (cmLaneSize2 / 2) - "
+	      "0.2cm) x3:0.5cm y3:(cmY + (cmLaneSize2 / 2) + 0.05cm) x4:0.1cm y4:(cmY + (cmLaneSize2 / 2) + 0.2cm)
+
+      TEXT \"In\" x:0.6cm y:(cmY + (cmLaneSize2 / 2)) h:c
+      SET cmY:(cmY + cmLaneSize2)
+
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize2)
+
+      POLYGON 4 x1:0.1cm y1:(cmY + (cmLaneSize2 / 2) - 0.2cm) x2:0.5cm y2:(cmY + (cmLaneSize2 / 2) - "
+	      "0.2cm) x3:0.5cm y3:(cmY + (cmLaneSize2 / 2) + 0.05cm) x4:0.1cm y4:(cmY + (cmLaneSize2 / 2) + 0.2cm)
+
+      TEXT \"Out\" x:0.6cm y:(cmY + (cmLaneSize2 / 2)) h:c
+      SET cmY:(cmY + cmLaneSize2)
+    ENDIF
+
+    IF (show_usecase = \"1\")
+      AVAL fill:\"Use cases color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+      FILL color:lightgray
+      ELLIPSE x:0.3cm y:(cmY + (cmLaneSize / 2)) rx:.2cm ry:.15cm
+      TEXT \"UC\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      SET cmY:(cmY + cmLaneSize)
+    ENDIF
+
+    IF (show_itsystem = \"1\")
+      AVAL fill:\"IT systems color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+
+      FILL color:green
+      ROUNDRECT x:0.1cm y:(cmY + (cmLaneSize / 2) - 0.3cm) w:0.4cm h:0.4cm rx:0.1cm ry:0.1cm
+      FILL color:white
+      RECTANGLE x:0.1cm y:(cmY + (cmLaneSize / 2) - 0.2cm) w:0.4cm h:0.2cm
+
+      TEXT \"IT\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      SET cmY:(cmY + cmLaneSize)
+    ENDIF
+
+    # write header
+    IF (cmY > 0.5cm)
+      FILL color:white
+      RECTANGLE x:0.0cm y:0.0cm w:(w) h:(.5cm)
+
+      IF (sp = \"German\")
+        TEXT (name_german) x:0.1cm y:.0cm
+      ELSE
+        TEXT (name) x:0.1cm y:.0cm
+      ENDIF
+    ENDIF
+
+  ENDIF
+
+#ELSE
+
+  
+
+ENDIF
+
+SET bShowModelStatus:(cond((_outdevtype != \"printer\") OR (_pageindex = 1) OR (_pagemargintype = \"\""
+	      "), 1, 0))
+
+# IF ((showModelInfo = \"1\") AND bShowModelStatus) #ZMI Show model status always on the drawing area"
+	      "
+IF (bShowModelStatus) 
+  # [HOs 2008-04-24: Font set to Arial (see CR#1973)
+  #FONT \"Verdana\" h:8pt
+  FONT \"Arial\" h:10pt
+
+  SET cm_h_all:0.7cm
+  SET cm_h_attribute:0.45cm
+  SET cm_w_space:0.4cm
+  SET cm_h_space:0.1cm
+  SET cm_w_state:0.7cm
+  SET cm_w_openclose:0.4cm
+AVAL sStatus:\"State\"
+
+    ATTRBOX \"State\"
+
+  SET cm_w_modState:(textw + cm_w_space)
+
+
+    ATTRBOX \"Name\"
+
+
+  SET cm_w_modInfo:(textw + cm_w_space)
+  TEXTBOX \"Powered by ADOxx\"
+  SET cm_w_lastUser:(textw + cm_w_space)
+  ATTRBOX \"Date last changed\"
+  SET cm_w_lastChange:(textw + cm_w_space)
+  SET cm_w_total:(cm_w_space + cm_w_state + cm_w_space + cm_w_modState + (cm_w_space/2) + cm_w_modInf"
+	      "o + (cm_w_space / 2) + cm_w_lastUser + (cm_w_space / 2) +       cm_w_lastChange + cm_w_space)
+
+  SET cm_x_start:0.0cm
+
+
+  CLIP_ROUNDRECT x:(cm_x_start) y:0.0cm w:(cm_w_total) h:(cm_h_all) rx:0.07cm ry:0.07cm
+  BITMAP \"db:\\\\symbol_state_bg_gradient.bmp\" x:(cm_x_start) y:0.0cm w:(cm_w_total) h:(cm_h_all)
+  PEN color:$b1b1b1 w:0.05cm join:bevel style:inside-frame
+
+
+  FILL style:null
+  CLIP_OFF
+
+
+  ROUNDRECT x:(cm_x_start) y:0.0cm w:(cm_w_total) h:(cm_h_all) rx:0.07cm ry:0.07cm
+
+  FONT h:10pt
+
+
+  SET cm_x_start:(cm_x_start + cm_w_space)
+  IF (sStatus = \"In process\")
+    SET filename:\"db:\\\\symbol_state_draft.bmp\"
+    BITMAPINFO (filename)
+    BITMAP (filename) x:(cm_x_start-.1cm) y:(cm_h_space) w:(bmpwidth / 96 * 2.54cm) h:(bmpheight / 96"
+	      " * 2.54cm)
+
+  ELSIF (sStatus = \"Ready\")
+    SET filename:\"db:\\\\symbol_state_qa.bmp\"
+    BITMAPINFO (filename)
+    BITMAP (filename) x:(cm_x_start-.1cm) y:(cm_h_space) w:(bmpwidth / 96 * 2.54cm) h:(bmpheight / 96"
+	      " * 2.54cm)
+ELSE
+    SET filename:\"db:\\\\symbol_state_released.bmp\"
+    BITMAPINFO (filename)
+    BITMAP (filename) x:(cm_x_start-.1cm) y:(cm_h_space) w:(bmpwidth / 96 * 2.54cm) h:(bmpheight / 96"
+	      " * 2.54cm)
+    ENDIF
+  # [HOs 2008-04-24: Font set to Arial (see CR#1973)
+  #FONT \"Verdana\" h:8pt
+  FONT \"Arial\" h:10pt
+  SET cm_x_start:(cm_x_start + 0.7cm + cm_w_space)
+  SET cm_add_dist:0.04cm
+  SET cm_add_dist2:0.02cm
+  #Modelstate
+  PEN style:null
+
+
+  FILL style:null
+  CLIP_ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_modState "
+	      "+ cm_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm ry:0.1cm
+    GRADIENT_RECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_modState"
+	      " + cm_add_dist) h:(cm_h_attribute + cm_add_dist) style:vert
+      color2:$efefef color1:$bdbdbd
+    ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_modState + c"
+	      "m_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm ry:0.1cm
+  CLIP_OFF
+  FILL color:snow
+
+
+
+  PEN color:snow
+
+  ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space + .03cm) w:(cm_w_modState - .05cm) h:(cm_h_attribute"
+	      " - .05cm) rx:0.1cm ry:0.1cm
+  # [GSp, 2008.08.29]
+
+
+    ATTR \"State\" x:(cm_x_start + (cm_w_space / 2)) y:(cm_h_all / 2) h:c
+
+
+  SET cm_x_start:(cm_x_start + cm_w_modState + (cm_w_space / 2))
+  #Modelname  
+  PEN style:null
+
+
+
+  FILL style:null
+  CLIP_ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_modInfo +"
+	      " cm_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm ry:0.1cm
+    GRADIENT_RECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_modInfo "
+	      "+ cm_add_dist) h:(cm_h_attribute + cm_add_dist) style:vert
+      color2:$efefef color1:$bdbdbd
+    ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_modInfo + cm"
+	      "_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm ry:0.1cm
+  CLIP_OFF
+  PEN color:snow
+
+  FILL color:snow
+  ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space + 0.03cm) w:(cm_w_modInfo - 0.05cm) h:(cm_h_attribut"
+	      "e - 0.05cm) rx:0.1cm ry:0.1cm
+
+
+    ATTR \"Name\" x:(cm_x_start + (cm_w_space / 2)) y:(cm_h_all / 2) h:c
+
+
+  SET cm_x_start:(cm_x_start + cm_w_modInfo + (cm_w_space / 2))
+  #Last user
+  PEN style:null
+  FILL style:null
+  CLIP_ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_lastUser "
+	      "+ cm_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm ry:0.1cm
+    GRADIENT_RECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_lastUser"
+	      " + cm_add_dist) h:(cm_h_attribute + cm_add_dist) style:vert
+      color2:$efefef color1:$bdbdbd
+    ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_lastUser + c"
+	      "m_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm ry:0.1cm
+  CLIP_OFF
+  PEN color:snow
+
+  FILL color:snow
+  ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space + 0.03cm) w:(cm_w_lastUser - 0.05cm) h:(cm_h_attribu"
+	      "te - 0.05cm) rx:0.1cm ry:0.1cm
+  TEXT \"Powered by ADOxx\" x:(cm_x_start + (cm_w_space / 2)) y:(cm_h_all / 2) h:c
+  HOTSPOT \"_GoToAceHp_\" text:\"Visit adoxx.org homepage\" x:(cm_x_start + (cm_w_space / 2)) y:0cm w"
+	      ":6cm h:0.7cm
+
+  SET cm_x_start:(cm_x_start + cm_w_lastUser + (cm_w_space / 2))
+  #Last change
+  PEN style:null
+  FILL style:null
+  CLIP_ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_lastChang"
+	      "e + cm_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm   ry:0.1cm
+    GRADIENT_RECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_lastChan"
+	      "ge + cm_add_dist) h:(cm_h_attribute + cm_add_dist) style:vert
+      color2:$efefef color1:$bdbdbd
+    ROUNDRECT x:(cm_x_start - cm_add_dist) y:(0.0cm + cm_h_space - cm_add_dist2) w:(cm_w_lastChange +"
+	      " cm_add_dist) h:(cm_h_attribute + cm_add_dist) rx:0.1cm     ry:0.1cm
+  CLIP_OFF
+  PEN color:snow
+
+  FILL color:snow
+  ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space + 0.03cm) w:(cm_w_lastChange - 0.05cm) h:(cm_h_attri"
+	      "bute - 0.05cm) rx:0.1cm ry:0.1cm
+  ATTR \"Date last changed\" x:(cm_x_start + (cm_w_space / 2)) y:(cm_h_all / 2) h:c
+  SET cm_x_start:(cm_x_start + cm_w_lastChange + (cm_w_space/2))
+  #Hide model info
+  # [HOs 2008-04-24: replaced TEXT by lines because the special characters \"‹\" and \"›\" are not su"
+	      "pported by the codepage
+  # which BOC recommends for usage on Oracle: Oracle-Codepage \"WE8ISO8859P15\" (CR#2323)
+  # Font \"Arial Rounded MT Bold\" is not available on a standard Windows XP after default installati"
+	      "on (CR#2322)
+  #FONT \"Arial Rounded MT Bold\" h:15pt color:$838080
+  #TEXT \"‹\" x:0.13cm y:0.3cm w:c h:c
+  #PEN color:$838080 w:0.05cm endcap:round
+  #LINE x1:0.13cm y1:0.25cm x2:0.08cm y2:0.35cm
+  #LINE x1:0.08cm y1:0.35cm x2:0.13cm y2:0.45cm
+   #HOTSPOT \"_ToggleModelInfo_\" text:\"Hide model information\" x:0.02cm y:0.0cm w:0.18cm h:0.7cm
+ELSE   
+  IF (_outdevtype = \"drawingarea\") 
+    FILL style:null
+    CLIP_ROUNDRECT x:0.0cm y:0.0cm w:.2cm h:0.7cm rx:0.07cm ry:0.07cm
+      GRADIENT_RECT x:0.0cm y:0.0cm w:.2cm h:0.7cm style:vert
+                    color1:$efefef color2:$bdbdbd
+      PEN color:$b1b1b1 w:0.05cm join:bevel style:inside-frame
+      ROUNDRECT x:0.0cm y:0.0cm w:.2cm h:0.7cm rx:0.07cm ry:0.07cm
+    CLIP_OFF
+    # [HOs 2008-04-24: replaced TEXT by lines because the special characters \"‹\" and \"›\" are not "
+	      "supported by the codepage
+    # which BOC recommends for usage on Oracle: Oracle-Codepage \"WE8ISO8859P15\" (CR#2323)
+    # Font \"Arial Rounded MT Bold\" is not available on a standard Windows XP after default installa"
+	      "tion (CR#2322)
+    #FONT \"Arial Rounded MT Bold\" h:15pt color:$838080
+    #TEXT \"›\" x:0.1cm y:0.3cm w:c h:c
+    #PEN color:$838080 w:0.05cm endcap:round
+    #LINE x1:0.08cm y1:0.25cm x2:0.13cm y2:0.35cm
+    #LINE x1:0.13cm y1:0.35cm x2:0.08cm y2:0.45cm
+
+    #HOTSPOT \"_ToggleModelInfo_\" text:\"Show model information\" x:0.02cm y:0.0cm w:0.18cm h:0.7cm
+
+  ENDIF
+ ENDIF
+
+
+##Copyright
+GRAPHREP layer:3
+AVAL copy:\"Copyright info\"
+# SET copyright:(copy)
+ AVAL posi:\"Copyright info position\"
+ IF (posi=\"Bottom left\")
+    IF(copy = \"Edit the model attributes to display your copyright info\")
+		FONT italic
+	ENDIF
+	ATTR \"Copyright info\" x:0cm y:(h - 1cm) w:l h:b
+        FONT color:darkblue
+	TEXT (\"Powered by ADOxx\") x:0cm y:(h - 0.5cm) w:l h:b
+        FONT underline color:darkblue
+	TEXT (\"www.adoxx.org\") x:0cm y:(h) w:l h:b
+        #HOTSPOT \"_GoToAceHp_\" text:\"Visit adoxx.org homepage\" x:0cm y:(h) w:4cm h:1cm
+ ELSIF (posi = \"Bottom right\")
+    IF(copy = \"Edit the model attributes to display your copyright info\")
+		FONT italic
+	ENDIF
+	ATTR \"Copyright info\" x:(w) y:(h - 1cm) w:r h:b
+        FONT color:darkblue
+	TEXT (\"Powered by ADOxx\") x:(w) y:(h - 0.5cm) w:r h:b
+        FONT underline color:darkblue
+        TEXT (\"www.adoxx.org\") x:(w) y:(h) w:r h:b
+        #HOTSPOT \"_GoToAceHp_\" text:\"Visit adoxx.org homepage\" x:(w - 4cm) y:(h) w:4cm h:1cm
+ ELSE
+    IF(copy = \"Edit the model attributes to display your copyright info\")
+		FONT italic
+	ENDIF
+        ATTR \"Copyright info\" x:(w) y:1cm w:r h:t
+        FONT color:darkblue
+	TEXT (\"Powered by ADOxx\") x:(w) y:1.5cm w:r h:t
+        FONT underline color:darkblue
+	TEXT (\"www.adoxx.org\") x:(w) y:2.0cm w:r h:t
+#HOTSPOT \"_GoToAceHp_\" text:\"Visit adoxx.org homepage\" x:(w - 4cm) y:(h) y:1.5cm h:1cm
+ ENDIF
+##//Copyright
+
+"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <ClassAbstract>
+	VALUE 1
+
+
+	CLASSATTRIBUTE <ClassVisible>
+	VALUE 1
+
+
+	CLASSATTRIBUTE <GraphRep>
+	VALUE "GRAPHREP layer:-1 
+
+AVAL set-default:\"0\" show_navigation:\"Reference overview active\"
+
+IF (show_navigation = \"1\")
+
+  AVAL set-default:\"\" sp:\"Language\"
+  AVAL set-default:\"horizontal\" modDirection:\"Modelling direction\"
+
+  AVAL set-default:\"0\" show_products:\"Products\"
+  AVAL set-default:\"0\" show_demiraci:\"RACI/DEMI visualisation\"
+  AVAL set-default:\"0\" show_respRole:\"Responsible role\"
+  AVAL set-default:\"0\" show_inout:   \"Input/Output\"
+  AVAL set-default:\"0\" show_usecase: \"Use cases\"
+  AVAL set-default:\"0\" show_itsystem:\"IT systems\"
+
+  SET name:\"Reference overview\"
+  SET name_german:\"Referenzenübersicht\"
+
+  SHADOW off
+  PEN w:0.05cm
+  FILL color:whitesmoke
+  FONT h:12pt
+
+  SET cmX:0.0cm
+  SET cmY:0.0cm
+  SET cmLaneSize:1.3cm
+  SET cmLaneSize2:2.0cm
+
+  IF (modDirection = \"vertical\")
+
+    SET cmX:0.0cm
+    SET cmY:0.5cm
+
+    IF (show_products = \"1\")
+      AVAL fill:\"Products color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+
+      FILL color:orange
+      ROUNDRECT x:(cmX + 0.45cm) y:0.6cm w:0.4cm h:0.4cm rx:0.1cm ry:0.1cm
+      FILL color:white
+      RECTANGLE x:(cmX + 0.45cm) y:0.7cm w:0.4cm h:0.2cm
+
+      TEXT \"P\" x:(cmX + 0.45cm) y:1.0cm
+      SET cmX:(cmX + cmLaneSize)
+    ENDIF
+
+    IF (show_demiraci = \"1\")
+      AVAL fill:\"RACI/DEMI color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+
+      FILL color:lightskyblue
+      ELLIPSE x:(cmX + 0.65cm) y:0.8cm rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:(cmX + 0.65cm) y:0.8cm w:c h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"D\" x:(cmX + 0.50cm) y:1.0cm
+      ELSE
+        TEXT \"R\" x:(cmX + 0.50cm) y:1.0cm
+      ENDIF
+      SET cmX:(cmX + cmLaneSize)
+
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+
+      FILL color:lightskyblue
+      ELLIPSE x:(cmX + 0.65cm) y:0.8cm rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:(cmX + 0.65cm) y:0.8cm w:c h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"E\" x:(cmX + 0.50cm) y:1.0cm
+      ELSE
+        TEXT \"A\" x:(cmX + 0.50cm) y:1.0cm
+      ENDIF
+      SET cmX:(cmX + cmLaneSize)
+
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+
+      FILL color:lightskyblue
+      ELLIPSE x:(cmX + 0.65cm) y:0.8cm rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:(cmX + 0.65cm) y:0.8cm w:c h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"M\" x:(cmX + 0.50cm) y:1.0cm
+      ELSE
+        TEXT \"C\" x:(cmX + 0.50cm) y:1.0cm
+      ENDIF
+      SET cmX:(cmX + cmLaneSize)
+
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+
+      FILL color:lightskyblue
+      ELLIPSE x:(cmX + 0.65cm) y:0.8cm rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:(cmX + 0.65cm) y:0.8cm w:c h:c
+      FONT h:12pt
+      FILL color:white
+
+      TEXT \"I\" x:(cmX + 0.55cm) y:1.0cm
+      SET cmX:(cmX + cmLaneSize)
+    ENDIF
+
+    IF (show_respRole = \"1\")
+      AVAL fill:\"Responsible role color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+      FILL color:lightskyblue
+      ELLIPSE x:(cmX + 0.65cm) y:0.8cm rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:(cmX + 0.65cm) y:0.8cm w:c h:c
+      FONT h:12pt
+      FILL color:white
+      IF (sp = \"German\")
+        TEXT \"V\" x:(cmX + 0.40cm) y:1.0cm
+      ELSE
+        TEXT \"RR\" x:(cmX + 0.50cm) y:1.0cm
+      ENDIF
+      SET cmX:(cmX + cmLaneSize)
+    ENDIF
+
+    IF (show_inout = \"1\")
+      AVAL fill:\"Input/Output color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize2) h:(h - cmY)
+
+      POLYGON 4 x1:(cmX + 0.75cm) y1:0.6cm x2:(cmX + 1.15cm) y2:0.6cm x3:(cmX + 1.15cm) y3:0.85cm x4:"
+	      "(cmX + 0.75cm) y4:1.0cm
+
+      TEXT \"In\" x:(cmX + 0.75cm) y:1.0cm
+      SET cmX:(cmX + cmLaneSize2)
+
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize2) h:(h - cmY)
+
+      POLYGON 4 x1:(cmX + 0.75cm) y1:0.6cm x2:(cmX + 1.15cm) y2:0.6cm x3:(cmX + 1.15cm) y3:0.85cm x4:"
+	      "(cmX + 0.75cm) y4:1.0cm
+
+      TEXT \"Out\" x:(cmX + 0.65cm) y:1.0cm
+      SET cmX:(cmX + cmLaneSize2)
+    ENDIF
+
+    IF (show_usecase = \"1\")
+      AVAL fill:\"Use cases color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+      FILL color:lightgray
+      ELLIPSE x:(cmX + 0.65cm) y:0.75cm rx:.2cm ry:.15cm
+      TEXT \"UC\" x:(cmX + 0.40cm) y:1.0cm
+      SET cmX:(cmX + cmLaneSize)
+    ENDIF
+
+    IF (show_itsystem = \"1\")
+      AVAL fill:\"IT systems color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(cmLaneSize) h:(h - cmY)
+
+      FILL color:green
+      ROUNDRECT x:(cmX + 0.45cm) y:0.6cm w:0.4cm h:0.4cm rx:0.1cm ry:0.1cm
+      FILL color:white
+      RECTANGLE x:(cmX + 0.45cm) y:0.7cm w:0.4cm h:0.2cm
+
+      TEXT \"IT\" x:(cmX + 0.45cm) y:1.0cm
+      SET cmX:(cmX + cmLaneSize)
+    ENDIF
+
+    # write header
+    IF (cmX > 0.0cm)
+      FILL color:white
+
+      IF (cmX < 4.0cm)
+        RECTANGLE x:0.0cm y:0.0cm w:4.0cm h:(.5cm)
+      ELSE
+        RECTANGLE x:0.0cm y:0.0cm w:(cmX) h:(.5cm)
+      ENDIF
+
+      IF (sp = \"German\")
+        TEXT (name_german) x:0.1cm y:.0cm
+      ELSE
+        TEXT (name) x:0.1cm y:.0cm
+      ENDIF
+    ENDIF
+
+  ELSIF (modDirection = \"horizontal\")
+
+    SET cmX:0.0cm
+    SET cmY:0.5cm
+
+    IF (show_products = \"1\")
+      AVAL fill:\"Products color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+
+      FILL color:orange
+      ROUNDRECT x:0.1cm y:(cmY + (cmLaneSize / 2) - 0.3cm) w:0.4cm h:0.4cm rx:0.1cm ry:0.1cm
+      FILL color:white
+      RECTANGLE x:0.1cm y:(cmY + (cmLaneSize / 2) - 0.2cm) w:0.4cm h:0.2cm
+
+      TEXT \"P\" x:0.6cm y:(cmY + (cmLaneSize / 2) - 0.1cm) h:c
+      SET cmY:(cmY + cmLaneSize)
+    ENDIF
+
+    IF (show_demiraci = \"1\")
+      AVAL fill:\"RACI/DEMI color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+
+      FILL color:lightskyblue
+      ELLIPSE x:0.3cm y:(cmY + (cmLaneSize / 2)) rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:0.22cm y:(cmY + (cmLaneSize / 2)) h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"D\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ELSE
+        TEXT \"R\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ENDIF
+      SET cmY:(cmY + cmLaneSize)
+
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+
+      FILL color:lightskyblue
+      ELLIPSE x:0.3cm y:(cmY + (cmLaneSize / 2)) rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:0.22cm y:(cmY + (cmLaneSize / 2)) h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"E\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ELSE
+        TEXT \"A\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ENDIF
+      SET cmY:(cmY + cmLaneSize)
+
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+
+      FILL color:lightskyblue
+      ELLIPSE x:0.3cm y:(cmY + (cmLaneSize / 2)) rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:0.22cm y:(cmY + (cmLaneSize / 2)) h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"M\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ELSE
+        TEXT \"C\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ENDIF
+      SET cmY:(cmY + cmLaneSize)
+
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+
+      FILL color:lightskyblue
+      ELLIPSE x:0.3cm y:(cmY + (cmLaneSize / 2)) rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:0.22cm y:(cmY + (cmLaneSize / 2)) h:c
+      FONT h:12pt
+      FILL color:white
+
+      TEXT \"I\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      SET cmY:(cmY + cmLaneSize)
+    ENDIF
+
+    IF (show_respRole = \"1\")
+      AVAL fill:\"Responsible role color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+      FILL color:lightskyblue
+      ELLIPSE x:0.3cm y:(cmY + (cmLaneSize / 2)) rx:.2cm ry:.2cm
+      FONT \"Arial\" h:7pt color:black
+      TEXT \"R\" x:0.22cm y:(cmY + (cmLaneSize / 2)) h:c
+      FONT h:12pt
+      FILL color:white
+
+      IF (sp = \"German\")
+        TEXT \"V\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ELSE
+        TEXT \"RR\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      ENDIF
+      SET cmY:(cmY + cmLaneSize)
+
+    ENDIF
+
+    IF (show_inout = \"1\")
+      AVAL fill:\"Input/Output color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize2)
+
+      POLYGON 4 x1:0.1cm y1:(cmY + (cmLaneSize2 / 2) - 0.2cm) x2:0.5cm y2:(cmY + (cmLaneSize2 / 2) - "
+	      "0.2cm) x3:0.5cm y3:(cmY + (cmLaneSize2 / 2) + 0.05cm) x4:0.1cm y4:(cmY + (cmLaneSize2 / 2) + 0.2cm)
+
+      TEXT \"In\" x:0.6cm y:(cmY + (cmLaneSize2 / 2)) h:c
+      SET cmY:(cmY + cmLaneSize2)
+
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize2)
+
+      POLYGON 4 x1:0.1cm y1:(cmY + (cmLaneSize2 / 2) - 0.2cm) x2:0.5cm y2:(cmY + (cmLaneSize2 / 2) - "
+	      "0.2cm) x3:0.5cm y3:(cmY + (cmLaneSize2 / 2) + 0.05cm) x4:0.1cm y4:(cmY + (cmLaneSize2 / 2) + 0.2cm)
+
+      TEXT \"Out\" x:0.6cm y:(cmY + (cmLaneSize2 / 2)) h:c
+      SET cmY:(cmY + cmLaneSize2)
+    ENDIF
+
+    IF (show_usecase = \"1\")
+      AVAL fill:\"Use cases color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+      FILL color:lightgray
+      ELLIPSE x:0.3cm y:(cmY + (cmLaneSize / 2)) rx:.2cm ry:.15cm
+      TEXT \"UC\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      SET cmY:(cmY + cmLaneSize)
+    ENDIF
+
+    IF (show_itsystem = \"1\")
+      AVAL fill:\"IT systems color\"
+      FILL color:(rgbval (fill))
+      RECTANGLE x:(cmX) y:(cmY) w:(w) h:(cmLaneSize)
+
+      FILL color:green
+      ROUNDRECT x:0.1cm y:(cmY + (cmLaneSize / 2) - 0.3cm) w:0.4cm h:0.4cm rx:0.1cm ry:0.1cm
+      FILL color:white
+      RECTANGLE x:0.1cm y:(cmY + (cmLaneSize / 2) - 0.2cm) w:0.4cm h:0.2cm
+
+      TEXT \"IT\" x:0.6cm y:(cmY + (cmLaneSize / 2)) h:c
+      SET cmY:(cmY + cmLaneSize)
+    ENDIF
+
+    # write header
+    IF (cmY > 0.5cm)
+      FILL color:white
+      RECTANGLE x:0.0cm y:0.0cm w:(w) h:(.5cm)
+
+      IF (sp = \"German\")
+        TEXT (name_german) x:0.1cm y:.0cm
+      ELSE
+        TEXT (name) x:0.1cm y:.0cm
+      ENDIF
+    ENDIF
+
+  ENDIF
+
+ELSE
+
+
+
+
+
+  AVAL showModelInfo:\"Display modelling information\"
+  IF 1 # (showModelInfo = \"1\")
+    FILL color:white
+    RECTANGLE w:0.28cm h:0.28cm
+    FONT h:16pt
+    TEXT \"-\" x:0.05cm y:-0.23cm
+    IF (_uilang = \"en\")
+      HOTSPOT \"_ToggleModelInfo_\" text:\"Hide model information\" x:0.0cm y:0.0cm w:0.28cm w:0.28cm"
+	      " h:0.28cm
+    ELSE # (_uilang = \"en\")
+      HOTSPOT \"_ToggleModelInfo_\" text:\"Modellinformationen ausblenden\" x:0.0cm y:0.0cm w:0.28cm "
+	      "h:0.28cm
+    ENDIF   
+
+    FONT
+    SET cm_h_all:0.7cm
+    SET cm_h_attribute:0.45cm
+    SET cm_w_space:0.4cm
+    SET cm_h_space:0.1cm
+    SET cm_w_state:0.7cm
+
+    ATTRBOX \"Name\"
+    SET cm_w_modInfo:(textw + cm_w_space)
+    SET cm_w_modInfo:3cm
+    #ATTRBOX \"Last user\"
+    SET cm_w_lastUser:(textw + cm_w_space)
+    #ATTRBOX \"Date last changed\"
+    SET cm_w_lastChange:(textw + cm_w_space)
+    SET cm_w_total:(cm_w_space + cm_w_state + cm_w_space + cm_w_modInfo + (cm_w_space / 2) + cm_w_las"
+	      "tUser + (cm_w_space / 2) + cm_w_lastChange + cm_w_space)
+
+
+    SET cm_x_start:0.35cm
+
+    # start - smooth shaded colors
+    CLIP_ROUNDRECT x:(cm_x_start) y:0.0cm w:(cm_w_total + 0.03cm) h:(cm_h_all) rx:0.07cm ry:0.07cm
+    GRADIENT_RECT x:(cm_x_start) y:0.0cm w:(cm_w_total) h:(cm_h_all) style:downdiag
+                  color1:$efefef color2:$bdbdbd
+    #PEN w:0.05cm
+    FILL style:null
+    CLIP_OFF
+    # end - smooth shaded colors
+
+    ROUNDRECT x:(cm_x_start) y:0.0cm w:(cm_w_total) h:(cm_h_all) rx:0.07cm ry:0.07cm
+
+    FONT h:10pt
+    #AVAL sStatus:\"State\"
+
+    SET cm_x_start:(cm_x_start + cm_w_space)
+
+    FILL color:white
+    ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space) w:(cm_w_state) h:(cm_h_attribute) rx:0.1cm ry:0.1"
+	      "cm
+
+    IF (sStatus = \"Reviewed\")
+      FONT \"Wingdings\" h:18pt color:green
+      TEXT \"C\" x:(cm_x_start + 0.1cm) y:0.04cm
+      PEN color:green
+      FILL style:null
+      ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space) w:(cm_w_state) h:(cm_h_attribute) rx:0.1cm ry:0"
+	      ".1cm
+    ELSIF (sStatus = \"Ready\")
+      FONT \"Wingdings\" h:15pt color:$fbc902
+      TEXT \"þ\" x:(cm_x_start + 0.1cm) y:0.08cm
+      PEN color:$fbc902
+      FILL style:null
+      ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space) w:(cm_w_state) h:(cm_h_attribute) rx:0.1cm ry:0"
+	      ".1cm
+    ELSE
+      FONT \"Wingdings\" h:15pt color:red
+      TEXT \"!\" x:(cm_x_start + 0.05cm) y:(cm_h_space - 0.03cm)
+      PEN color:red
+      FILL style:null
+      ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space) w:(cm_w_state) h:(cm_h_attribute) rx:0.1cm ry:0"
+	      ".1cm
+    ENDIF
+    PEN
+    FONT
+
+    SET cm_x_start:(cm_x_start + 0.7cm + cm_w_space)
+
+    FILL color:white
+    ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space) w:(cm_w_modInfo) h:(cm_h_attribute) rx:0.1cm ry:0"
+	      ".1cm
+    ATTR \"Name\" x:(cm_x_start + (cm_w_space / 2)) y:(cm_h_all / 2) h:c
+    TEXT \"The model name\" x:(cm_x_start + (cm_w_space / 2)) y:(cm_h_all / 2) h:c
+
+    SET cm_x_start:(cm_x_start + cm_w_modInfo + (cm_w_space / 2))
+
+    FILL color:white
+    ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space) w:(cm_w_lastUser) h:(cm_h_attribute) rx:0.1cm ry:"
+	      "0.1cm
+    #ATTR \"Last user\" x:(cm_x_start + (cm_w_space / 2)) y:(cm_h_all / 2) h:c
+
+    SET cm_x_start:(cm_x_start + cm_w_lastUser + (cm_w_space / 2))
+
+    FILL color:white
+    ROUNDRECT x:(cm_x_start) y:(0.0cm + cm_h_space) w:(cm_w_lastChange) h:(cm_h_attribute) rx:0.1cm r"
+	      "y:0.1cm
+    #ATTR \"Date last changed\" x:(cm_x_start + (cm_w_space / 2)) y:(cm_h_all / 2) h:c
+
+  ELSE
+    FILL color:white
+    RECTANGLE w:0.28cm h:0.28cm
+    FONT h:12pt
+    TEXT \"+\" x:0.02cm y:-0.1cm
+    IF (_uilang = \"en\")
+      HOTSPOT \"_ToggleModelInfo_\" text:\"Show model information\" x:0.0cm y:0.0cm w:0.28cm w:0.28cm"
+	      " h:0.28cm
+    ELSE # (_uilang = \"en\")
+      HOTSPOT \"_ToggleModelInfo_\" text:\"Modellinformationen anzeigen\" x:0.0cm y:0.0cm w:0.28cm h:"
+	      "0.28cm
+    ENDIF
+
+  ENDIF
+
+ENDIF
+"
+
+
+	CLASSATTRIBUTE <VisibleAttrs>
+	VALUE ""
+
+
+	CLASSATTRIBUTE <AttrRep>
+	VALUE "NOTEBOOK
 CHAPTER \"Description\"
 ATTR \"Name\"
 "
 
-CLASSATTRIBUTE <WF_Trans>
- VALUE ""
 
-CLASSATTRIBUTE <AnimRep>
- VALUE ""
+	CLASSATTRIBUTE <WF_Trans>
+	VALUE ""
 
-CLASSATTRIBUTE <HlpTxt>
- VALUE ""
 
-CLASSATTRIBUTE <Model pointer>
- VALUE ""
+	CLASSATTRIBUTE <AnimRep>
+	VALUE ""
 
-CLASSATTRIBUTE <Class cardinality>
- VALUE ""
 
-ATTRIBUTE <__GfxThumb__>
- TYPE LONGSTRING
- VALUE ""
+	CLASSATTRIBUTE <HlpTxt>
+	VALUE ""
 
-FACET <MultiLineString>
- VALUE 0
 
-FACET <AttributeHelpText>
- VALUE ""
+	CLASSATTRIBUTE <Model pointer>
+	VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
 
-ATTRIBUTE <Model Type>
- TYPE ENUMERATION
+	CLASSATTRIBUTE <Class cardinality>
+	VALUE ""
 
-FACET <EnumerationDomain>
- VALUE "PIM@PSM"
 
-FACET <MultiLineString>
- VALUE 0
+	CLASSATTRIBUTE <Monochrome view>
+	VALUE "no"
 
-FACET <AttributeHelpText>
- VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
 
-ATTRIBUTE <Model Type>
- VALUE "PIM"
+//--- Class <__ModelTypeMetaData__> - Instance attributes-------------------------
 
-ATTRIBUTE <IoTPlatform AttrRep>
- TYPE LONGSTRING
- VALUE "NOTEBOOK
-CHAPTER \"Description\"
-ATTR \"Model Type\" write-protected
+	ATTRIBUTE <Bezeichnung>
+	TYPE STRING
+	VALUE "Keine Modellbezeichnung vergeben"
 
-MODE \"PSM\"
-ATTR \"Platform\" write-protected
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Geben sie eine Bezeichnung ein. Dient der Dokumentation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Beschreibung>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 1
+
+		FACET <AttributeHelpText>
+		VALUE "Geben sie eine Beschreibung ein. Dient der Dokumentation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Kommentar>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 1
+
+		FACET <AttributeHelpText>
+		VALUE "Geben sie einen Kommentar ein. Dient der Dokumentation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Pool Term>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Term is an attribute that is a text description of the Swimlane."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <ParticipantType>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Role@Entity"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The Modeler MUST define the Participant for a Pool. The Participant can be either a Role or an Entity"
+		      ". This defines the role that a particular Entity or Role the Pool will play in a Diagram that include"
+		      "s collaboration."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <ParticipantType>
+	VALUE "Role"
+
+
+	ATTRIBUTE <Role>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The Modeler MUST define the Participant for a Pool. The Participant can be either a Role or an Entity"
+		      ". This defines the role that a particular Entity or Role the Pool will play in a Diagram that include"
+		      "s collaboration."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Entity>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The Modeler MUST define the Participant for a Pool. The Participant can be either a Role or an Entity"
+		      ". This defines the role that a particular Entity or Role the Pool will play in a Diagram that include"
+		      "s collaboration."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <BoundaryVisible>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "No@Yes"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "This attribute defines if the rectangular boundary for the Pool is visible. Only one Pool in the Diag"
+		      "ram MAY have the attribute set to False."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <BoundaryVisible>
+	VALUE "No"
+
+
+	ATTRIBUTE <BPD Model Attributes>
+	TYPE STRING
+	VALUE "NOTEBOOK
+
+CHAPTER \"Business Process Diagram Attributes\"
+ATTR \"Name\" write-protected
+ATTR \"Contact person\"
+ATTR \"Author\" write-protected
+ATTR \"Language (BPMN)\"
+ATTR \"ExpressionLanguage\"
+ATTR \"QueryLanguage\"
+ATTR \"Creation date\" write-protected
+ATTR \"Date last changed\" write-protected
+ATTR \"Documentation (Model)\"
+ATTR \"State\"
+
+GROUP \"Copyright\"
+ATTR \"Copyright info\" 
+ATTR \"Copyright info position\" 
+ENDGROUP
+
+CHAPTER \"Process Attributes\"
+ATTR \"Name\" write-protected
+ATTR \"Process Term\"
+ATTR \"ProcessType\"
+ATTR \"Status\"
+ATTR \"Assignments\" lines:5
+ATTR \"Properties (BPMN)\" lines:5
+ATTR \"AdHoc\" ctrltype:check checked-value:\"Yes\" unchecked-value:\"No\"
+GROUP \"AdHoc = True\"
+ATTR \"AdHocOrdering\"
+ATTR \"AdHocCompletionCondition\"
+ENDGROUP
+ATTR \"SuppressJoinFailure\" ctrltype:check checked-value:\"Yes\" unchecked-value:\"No\"
+ATTR \"EnableInstanceCompensation\" ctrltype:check checked-value:\"Yes\" unchecked-value:\"No\"
+ATTR \"Categories (Process)\"
+ATTR \"Documentation (Process)\"
+
+CHAPTER \"Pool Attributes\"
+GROUP \"Common Graphical Object Attributes\"
+ATTR \"Name\" write-protected
+ATTR \"Categories (Pool)\"
+ATTR \"Documentation (Pool)\"
+ENDGROUP
+GROUP \"Common Swimlane Attributes\"
+ATTR \"Pool Term\"
+ENDGROUP
+GROUP \"Pool Attributes\"
+ATTR \"ParticipantType\"
+ATTR \"Role\"
+ATTR \"Entity\"
+ATTR \"BoundaryVisible\" ctrltype:check checked-value:\"Yes\" unchecked-value:\"No\" write-protected
+ENDGROUP"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Language>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "System@English@German"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "This holds the name of the language in which text is written. The default is English."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <Language>
+	VALUE "System"
+
+
+	ATTRIBUTE <ExpressionLanguage>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "A Language MAY be provided so that the syntax of expressions used in the Diagram can be understood."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <QueryLanguage>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "A Language MAY be provided so that the syntax of queries used in the Diagram can be understood."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Process Term>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Process Term is an attribute that is a text description of the object."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <BPD Term>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Term is an attribute that is a text description of the Diagram."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <ProcessType>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "None@Private@Abstract@Collaboration"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "ProcessType is an attribute that provides information about which lower-level language the Pool will "
+		      "be mapped.By default, the ProcessType is None (or undefined). A Private ProcessType MAY be mapped to "
+		      "an executable BPEL4WS process. An Abstract ProcessType is also called the public interface of a proce"
+		      "ss (or other web services) and MAY be mapped to an abstract BPEL4WS process. A Collaboration ProcessT"
+		      "ype will have two Lanes that represent business roles (e.g., buyer or seller) and will show the inter"
+		      "actions between these roles. These Pools MAY be mapped to languages such as ebXML or WS Choreography."
+		      " However, these mappings are not provided in this version of the specification.
+If the Process is to be used to create a BPEL4WS document, then the attribute MUST be set to Private "
+		      "or Abstract."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <ProcessType>
+	VALUE "None"
+
+
+	ATTRIBUTE <Status>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "None@Ready@Active@Cancelled@Aborting@Aborted@Completing@Completed"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The Status of a Process is determined when the Process is being executed by a process engine. The Sta"
+		      "tus of a Process can be used within Assignment Expressions."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <Status>
+	VALUE "None"
+
+
+	ATTRIBUTE <Assignments>
+	TYPE RECORD
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "One or more assignment expressions MAY be made for the object. The Assignment SHALL be performed as d"
+		      "efined by the AssignTime attribute.
+
+To:
+The target for the Assignment MUST be a Property of the Process or the activity itself.
+
+To/Name:
+Each Property has a Name (e.g., name=\"Customer Name\").
+
+To/Type:
+Each Property has a Type (e.g., type=\"String\"). A Property may be of type Set, which allows child P"
+		      "roperties.
+
+To/Correlation:
+If the ConditionType attribute is set to Expression, then the ConditionExpression attribute MUST be d"
+		      "efined. Otherwise, it is not valid. This attribute is included for mapping to BPEL4WS. The Property w"
+		      "ill map to a correlationSet and the child Properties will be properties of that correlationSet.
+
+From:
+The Expression MUST be made up of a combination of Values, Properties, and Attributes, which are sepa"
+		      "rated by operators such as add or multiply. The expression language is defined in the ExpressionLangu"
+		      "age attribute of the Business Process Diagram.
+
+AssignTime:
+An Assignment MAY have an AssignTime setting. If the Object is an activity (Task, Sub-Process, or Pro"
+		      "cess), then the Assignment MUST have an AssignTime. A value of Start means that the assignment SHALL "
+		      "occur at the start of the activity. This can be used to assign the higher-level (global) Properties o"
+		      "f the Process to the (local) Properties of the activity as an input to the activity. A value of End m"
+		      "eans that the assignment SHALL occur at the end of the activity. This can be used to assign the (loca"
+		      "l) Properties of the activity to the higher-level (global) Properties of the Process as an output to "
+		      "the activity."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <RecordClassName>
+		VALUE "Assignments"
+
+		FACET <RecordClassMultiplicity>
+		VALUE 0
+
+
+	ATTRIBUTE <AdHoc>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "No@Yes"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "AdHoc is a boolean attribute, which has a default of False. This specifies whether the Process is Ad "
+		      "Hoc or not. The activities within an Ad Hoc Process are not controlled or sequenced in a particular o"
+		      "rder, their performance is determined by the performers of the activities. If set to True, then the A"
+		      "d Hoc marker SHALL be placed at the bottom center of the Process or the Sub-Process shape for Ad Hoc "
+		      "Processes."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <AdHoc>
+	VALUE "No"
+
+
+	ATTRIBUTE <AdHocOrdering>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "None@Sequential@Parallel"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "If the Process is Ad Hoc (the AdHoc attribute is True), then the AdHocOrdering attribute MUST be incl"
+		      "uded. This attribute defines if the activities within the Process can be performed in Parallel or mus"
+		      "t be performed sequentially. The default setting is Parallel and the setting of Sequential is a restr"
+		      "iction on the performance that may be required due to shared resources."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <AdHocOrdering>
+	VALUE "None"
+
+
+	ATTRIBUTE <AdHocCompletionCondition>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "If the Process is Ad Hoc (the AdHoc attribute is True), then the AdHocCompletionCondition attribute M"
+		      "UST be included. This attribute defines the conditions when the Process will end."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <EnableInstanceCompensation>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "No@Yes"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "This attribute is included for mapping to BPEL4WS. It specifies whether or not a compensation can be "
+		      "performed after the Process has completed normally."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <EnableInstanceCompensation>
+	VALUE "No"
+
+
+	ATTRIBUTE <Categories (Process)>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 1
+
+		FACET <AttributeHelpText>
+		VALUE "Add one or more defined Categories that can be used for purposes such as reporting and analysis."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Documentation (Process)>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 1
+
+		FACET <AttributeHelpText>
+		VALUE "Add optional text documentation about the Process here."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Documentation (Pool)>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 1
+
+		FACET <AttributeHelpText>
+		VALUE "Add optional text documentation about the Pool here."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Categories (Pool)>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 1
+
+		FACET <AttributeHelpText>
+		VALUE "Add one or more defined Categories that can be used for purposes such as reporting and analysis."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <SuppressJoinFailure>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "No@Yes"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "This attribute is included for mapping to BPEL4WS. This specifies whether or not a BPEL4WS joinFailur"
+		      "e fault will be suppressed for all activities in the BPEL4WS process."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <SuppressJoinFailure>
+	VALUE "No"
+
+
+	ATTRIBUTE <Change history>
+	TYPE RECORD
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <RecordClassName>
+		VALUE "Change history"
+
+		FACET <RecordClassMultiplicity>
+		VALUE 0
+
+
+	ATTRIBUTE <RACI/DEMI visualisation>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	ATTRIBUTE <Modelling direction>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "horizontal@vertical"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <Modelling direction>
+	VALUE "horizontal"
+
+
+	ATTRIBUTE <IT systems>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	ATTRIBUTE <Responsible role>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	ATTRIBUTE <Input/Output>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	ATTRIBUTE <Products>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	ATTRIBUTE <Use cases>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	ATTRIBUTE <Products color>
+	TYPE STRING
+	VALUE "whitesmoke"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <RACI/DEMI color>
+	TYPE STRING
+	VALUE "whitesmoke"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Responsible role color>
+	TYPE STRING
+	VALUE "whitesmoke"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Input/Output color>
+	TYPE STRING
+	VALUE "whitesmoke"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Use cases color>
+	TYPE STRING
+	VALUE "whitesmoke"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <IT systems color>
+	TYPE STRING
+	VALUE "whitesmoke"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Reference overview active>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	ATTRIBUTE <Contact person>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Give the contact details for the person who actually performs the activity. 
+			
+The contact details will be shown in the HTML documentation in order to provide a contact for functio"
+		      "nality feedback."
+
+		FACET <AttributeRegularExpression>
+		VALUE "REGEXP
+	message:\"That is not a valid e-mail adress!\"
+	expression:\".*@.*\""
+
+
+	ATTRIBUTE <_ToggleModelInfo_>
+	TYPE PROGRAMCALL
+
+		FACET <EnumerationDomain>
+		VALUE "ITEM \"_ToggleModelInfo_\"
+	TOGGLE_MODEL_INFO"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <_ToggleModelInfo_>
+	VALUE "_ToggleModelInfo_"
+
+
+	ATTRIBUTE <Display modelling information>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	ATTRIBUTE <Documentation (Model)>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 1
+
+		FACET <AttributeHelpText>
+		VALUE "The modeler MAY add optional text documentation about the Diagram."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Properties (BPMN)>
+	TYPE RECORD
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Modeler-defined Properties MAY be added to a Process. These Properties are \"local\" to the Process. "
+		      "All Tasks, Sub-Process objects, and Sub-Processes that are embedded SHALL have access to these Proper"
+		      "ties.
+
+Term:
+Each Property has a Term (e.g., name=\"Customer Name\").
+
+Type:
+Each Property has a Type (e.g., type=\"String\"). A Property may be of type Set, which allows child P"
+		      "roperties.
+
+Correlation:
+If the ConditionType attribute is set to Expression, then the ConditionExpression attribute MUST be d"
+		      "efined. Otherwise, it is not valid. This attribute is included for mapping to BPEL4WS. The Property w"
+		      "ill map to a correlationSet and the child Properties will be properties of that correlationSet.
 "
 
-FACET <MultiLineString>
- VALUE 0
+		FACET <AttributeRegularExpression>
+		VALUE ""
 
-FACET <AttributeHelpText>
- VALUE ""
+		FACET <RecordClassName>
+		VALUE "properties"
 
-FACET <AttributeRegularExpression>
- VALUE ""
+		FACET <RecordClassMultiplicity>
+		VALUE 0
 
-ATTRIBUTE <Export>
- TYPE PROGRAMCALL
 
-FACET <EnumerationDomain>
- VALUE "ITEM \"Export files\"
+	ATTRIBUTE <CreationDate>
+	TYPE EXPRESSION
+	VALUE "EXPR type:string expr:fixed:(maval(\"Creation date\"))"
 
-EXPORT_PSM"
+		FACET <MultiLineString>
+		VALUE 0
 
-FACET <MultiLineString>
- VALUE 0
+		FACET <AttributeHelpText>
+		VALUE "This defines the date on which the Diagram was created."
 
-FACET <AttributeHelpText>
- VALUE ""
+		FACET <AttributeRegularExpression>
+		VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
 
-ATTRIBUTE <Export>
- VALUE "Export files"
+	ATTRIBUTE <ModificationDate>
+	TYPE EXPRESSION
+	VALUE "EXPR type:string expr:fixed:(maval(\"Date last changed\"))"
 
-ATTRIBUTE <Platform>
- TYPE ENUMERATION
+		FACET <MultiLineString>
+		VALUE 0
 
-FACET <EnumerationDomain>
- VALUE "ThingsBoard@Losant"
+		FACET <AttributeHelpText>
+		VALUE "This defines the date on which the Diagram was last modified."
 
-FACET <MultiLineString>
- VALUE 0
+		FACET <AttributeRegularExpression>
+		VALUE ""
 
-FACET <AttributeHelpText>
- VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
+	ATTRIBUTE <Language (BPMN)>
+	TYPE STRING
+	VALUE "English"
 
-ATTRIBUTE <Platform>
- VALUE "ThingsBoard"
+		FACET <MultiLineString>
+		VALUE 0
 
-ATTRIBUTE <Logic>
- TYPE ATTRPROFREF
+		FACET <AttributeHelpText>
+		VALUE "This holds the name of the language in which text is written. The default is English."
 
-FACET <MultiLineString>
- VALUE 0
+		FACET <AttributeRegularExpression>
+		VALUE ""
 
-FACET <AttributeHelpText>
- VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
-
-FACET <AttributeProfileRefDomain>
- VALUE "APREF c:\"Prova\""
-
-ATTRIBUTE <Logic>
- VALUE ""
-
-ATTRIBUTE <Position>
- VALUE ""
-
-ATTRIBUTE <External tool coupling>
- VALUE ""
-
-CLASS <entity> : <__D-construct__>
-
-CLASSATTRIBUTE <ClassAbstract>
- VALUE 1
-
-CLASSATTRIBUTE <ClassVisible>
- VALUE 1
-
-CLASSATTRIBUTE <GraphRep>
- VALUE ""
-
-CLASSATTRIBUTE <VisibleAttrs>
- VALUE ""
-
-CLASSATTRIBUTE <AttrRep>
- VALUE "NOTEBOOK
+	ATTRIBUTE <BPMN20 Model Attributes>
+	TYPE LONGSTRING
+	VALUE "NOTEBOOK
+# TODO AVAL sMfbRegistration:\"_MFB-Registration_\"
 CHAPTER \"Description\"
-ATTR \"Name\"
+ATTR \"Contact person\"
+ATTR \"Keywords\" lines:2
+ATTR \"Description\" lines:3
+ATTR \"Comment\" lines:3
+
+GROUP \"Copyright\"
+ATTR \"Copyright info\" 
+ATTR \"Copyright info position\" 
+ENDGROUP
+ATTR \"Name\" write-protected
+ATTR \"Id\" write-protected
+
+
+
+#---------------------------------------------
+CHAPTER \"Process properties\"
+#---------------------------------------------
+GROUP \"Process attributes\"
+ATTR \"Process type\" #None, Private, Public 
+ATTR \"Executable\" ctrltype:check checked-value:\"Yes\" unchecked-value:\"No\"
+ATTR \"Closed\" ctrltype:check checked-value:\"Yes\" unchecked-value:\"No\"
+ENDGROUP
+
+GROUP \"Process relevance\"
+ATTR \"Auditing\" ctrltype:check checked-value:\"Yes\" unchecked-value:\"No\"
+ATTR \"Monitoring\" ctrltype:check checked-value:\"Yes\" unchecked-value:\"No\"
+ENDGROUP
+
+CHAPTER \"User attributes\"
+ATTR \"Model type\"
+ATTR \"State\"
+ATTR \"Reviewed on\"
+ATTR \"Reviewed by\"
+
+CHAPTER \"System attributes\"
+ATTR \"Author\" write-protected
+ATTR \"Creation date\" write-protected
+ATTR \"Last user\" write-protected
+# ATTR \"Date last changed from\" write-protected
+ATTR \"Date last changed\" write-protected
+ATTR \"Number of objects and relations\" write-protected
+ATTR \"Context of version\" write-protected
+
+CHAPTER \"Change history\"
+ATTR \"Change history\" lines:30
+
 "
 
-CLASSATTRIBUTE <WF_Trans>
- VALUE ""
+		FACET <MultiLineString>
+		VALUE 0
 
-CLASSATTRIBUTE <AnimRep>
- VALUE ""
+		FACET <AttributeHelpText>
+		VALUE ""
 
-CLASSATTRIBUTE <HlpTxt>
- VALUE ""
+		FACET <AttributeRegularExpression>
+		VALUE ""
 
-CLASSATTRIBUTE <Model pointer>
- VALUE ""
 
-CLASSATTRIBUTE <Class cardinality>
- VALUE ""
+	ATTRIBUTE <Id>
+	TYPE EXPRESSION
+	VALUE "EXPR type:string expr:fixed:(STR objid)"
 
-ATTRIBUTE <name>
- TYPE STRING
- VALUE ""
+		FACET <MultiLineString>
+		VALUE 0
 
-FACET <MultiLineString>
- VALUE 0
+		FACET <AttributeHelpText>
+		VALUE ""
 
-FACET <AttributeHelpText>
- VALUE ""
+		FACET <AttributeRegularExpression>
+		VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
 
-ATTRIBUTE <description>
- TYPE LONGSTRING
- VALUE ""
+	ATTRIBUTE <Auditing>
+	TYPE ENUMERATION
 
-FACET <MultiLineString>
- VALUE 0
+		FACET <EnumerationDomain>
+		VALUE "No@Yes"
 
-FACET <AttributeHelpText>
- VALUE ""
+		FACET <MultiLineString>
+		VALUE 0
 
-FACET <AttributeRegularExpression>
- VALUE ""
+		FACET <AttributeHelpText>
+		VALUE "A hook for specifying audit related properties. Auditing can only be defined for a Process.
 
-ATTRIBUTE <psm_type>
- TYPE STRING
- VALUE ""
+The Auditing element and its model associations allow defining attributes related to auditing. It lev"
+		      "erages the BPMN extensibility mechanism."
 
-FACET <MultiLineString>
- VALUE 0
+		FACET <AttributeRegularExpression>
+		VALUE ""
 
-FACET <AttributeHelpText>
- VALUE ""
+	ATTRIBUTE <Auditing>
+	VALUE "No"
 
-FACET <AttributeRegularExpression>
- VALUE ""
 
-ATTRIBUTE <available_types>
- TYPE STRING
- VALUE ""
+	ATTRIBUTE <Monitoring>
+	TYPE ENUMERATION
 
-FACET <MultiLineString>
- VALUE 0
+		FACET <EnumerationDomain>
+		VALUE "No@Yes"
 
-FACET <AttributeHelpText>
- VALUE ""
+		FACET <MultiLineString>
+		VALUE 0
 
-FACET <AttributeRegularExpression>
- VALUE ""
+		FACET <AttributeHelpText>
+		VALUE "This attribute provides a hook for specifying monitoring related properties.
 
-ATTRIBUTE <select_type>
- TYPE PROGRAMCALL
+The Monitoring and its model associations allow defining attributes related to monitoring. It leverag"
+		      "es the BPMN extensibility mechanism. This element is used by FlowElements and Process."
 
-FACET <EnumerationDomain>
- VALUE "ITEM \"Select type\"
+		FACET <AttributeRegularExpression>
+		VALUE ""
 
-CC \"Modeling\" GET_ACT_MODEL
-PSM_SELECT_TYPE objID:(objid) modelID:(modelid)"
+	ATTRIBUTE <Monitoring>
+	VALUE "No"
 
-FACET <MultiLineString>
- VALUE 0
 
-FACET <AttributeHelpText>
- VALUE ""
+	ATTRIBUTE <Process type>
+	TYPE ENUMERATION
 
-FACET <AttributeRegularExpression>
- VALUE ""
+		FACET <EnumerationDomain>
+		VALUE "None@Private@Public"
 
-ATTRIBUTE <select_type>
- VALUE "Select type"
+		FACET <MultiLineString>
+		VALUE 0
 
-ATTRIBUTE <Position>
- VALUE ""
+		FACET <AttributeHelpText>
+		VALUE "The ProcessType attribute Provides additional information about the level of abstraction modeled by t"
+		      "his Process.
 
-ATTRIBUTE <External tool coupling>
- VALUE ""
+Public:
+A public Process shows only those flow elements that are relevant to external consumers. Internal det"
+		      "ails are not modeled. These Processes are publicly visible and can be used within a Collaboration. No"
+		      "te that the public processType was named abstract in BPMN 1.2. 
+
+Private:
+A private Process is one that is internal to a specific organization.
+
+None:
+By default, the processType is none, meaning undefined."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <Process type>
+	VALUE "None"
+
+
+	ATTRIBUTE <Executable>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "No@Yes"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "An optional Boolean value specifying whether the Process is executable. 
+
+Executable:
+An executable Process is a private Process that has been modeled for the purpose of being executed. O"
+		      "f course, during the development cycle of the Process, there will be stages where the Process does no"
+		      "t have enough detail to be executable. 
+
+Non-Executable:
+A non-executable Process is a private Process that has been modeled for the purpose of documenting Pr"
+		      "ocess behavior at a modeler-defined level of detail. Thus, information needed for execution, such as "
+		      "formal condition expressions are typically not included in a non-executable Process. For public Proce"
+		      "sses, no value has the same semantics as if the value were false. The value MAY not be true for publi"
+		      "c Processes."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <Executable>
+	VALUE "No"
+
+
+	ATTRIBUTE <Closed>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "No@Yes"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "A boolean value specifying whether interactions, such as sending and receiving Messages and Events, n"
+		      "ot modeled in the Process can occur when the Process is executed or performed. If the value is true, "
+		      "they MAY NOT occur. If the value is false, they MAY occur."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <Closed>
+	VALUE "No"
+
+
+	ATTRIBUTE <Copyright info>
+	TYPE STRING
+	VALUE "Edit the model attributes to display your copyright info"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <Copyright info position>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Top right@Bottom right@Bottom left"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <Copyright info position>
+	VALUE "Bottom right"
+
+
+	ATTRIBUTE <_GoToAceHp_>
+	TYPE PROGRAMCALL
+
+		FACET <EnumerationDomain>
+		VALUE "ITEM \"_GoToAceHp_\"
+START (\"http://www.adoxx.org/\")"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	ATTRIBUTE <_GoToAceHp_>
+	VALUE "_GoToAceHp_"
+
+
+	ATTRIBUTE <__GfxThumb__>
+	TYPE LONGSTRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+//--- Class <__ModelTypeMetaData__> - default values------------------------------
+
+	ATTRIBUTE <Position>
+	VALUE ""
+
+
+	ATTRIBUTE <External tool coupling>
+	VALUE ""
+
+
+	ATTRIBUTE <fontcolor>
+	VALUE "EXPR type:string expr:(set(targets, ctobjs(\"Is inside\")),
+cond
+  (tokcnt(targets,\" \")=0,\"black\",
+    (cond
+      (tokcnt(targets,\" \")=1,aval (VAL ctobjs(\"Is inside\"), \"Fontcolor\"),
+    (
+    set(tk,token(targets,0,\" \")),
+                set(t,VAL (copy(aval(VAL tk, \"Position\"),search(aval(VAL tk, \"Position\"),\"index\""
+	      ",0)+6,-1))),
+    fortok(x,targets,\" \",
+        (
+        set(c,VAL (copy(aval(VAL x, \"Position\"),search(aval(VAL x, \"Position\"),\"index\",0)+6,-1)"
+	      ")),
+        cond(c>=t,(set(res,x),set(t,c)),\"\")
+        )),
+                aval (VAL res, \"Fontcolor\")
+    ))
+   )
+  ))"
+
+
+	ATTRIBUTE <Categories>
+	VALUE ""
+
+
+	ATTRIBUTE <Documentation>
+	VALUE ""
 
 CLASS <application_logic> : <__D-construct__>
 

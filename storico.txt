@@ -1,3 +1,17 @@
 manually merged 21/9/2022
 
 -CLASSATTRIBUTE BP Model Attributes & BP Model GraphRep (da libreria Floware)
+
+
+MEMO
+Modeltype metadata
+TODO ricontrollare gli attributi di X-IoT modeltypemetadata
+
+
+X-IOT class ModelTypeMetaData attributes not present in Floware
+
+-Export
+-IoTPlatform AttrRep
+-Logic
+-Model Type
+-Platform
