@@ -7693,6 +7693,120 @@ cond
 	ATTRIBUTE <Documentation>
 	VALUE ""
 
+CLASS <entity> : <__D-construct__>
+
+CLASSATTRIBUTE <ClassAbstract>
+ VALUE 1
+
+CLASSATTRIBUTE <ClassVisible>
+ VALUE 1
+
+CLASSATTRIBUTE <GraphRep>
+ VALUE ""
+
+CLASSATTRIBUTE <VisibleAttrs>
+ VALUE ""
+
+CLASSATTRIBUTE <AttrRep>
+ VALUE "NOTEBOOK
+CHAPTER \"Description\"
+ATTR \"Name\"
+"
+
+CLASSATTRIBUTE <WF_Trans>
+ VALUE ""
+
+CLASSATTRIBUTE <AnimRep>
+ VALUE ""
+
+CLASSATTRIBUTE <HlpTxt>
+ VALUE ""
+
+CLASSATTRIBUTE <Model pointer>
+ VALUE ""
+
+CLASSATTRIBUTE <Class cardinality>
+ VALUE ""
+
+ATTRIBUTE <name>
+ TYPE STRING
+ VALUE ""
+
+FACET <MultiLineString>
+ VALUE 0
+
+FACET <AttributeHelpText>
+ VALUE ""
+
+FACET <AttributeRegularExpression>
+ VALUE ""
+
+ATTRIBUTE <description>
+ TYPE LONGSTRING
+ VALUE ""
+
+FACET <MultiLineString>
+ VALUE 0
+
+FACET <AttributeHelpText>
+ VALUE ""
+
+FACET <AttributeRegularExpression>
+ VALUE ""
+
+ATTRIBUTE <psm_type>
+ TYPE STRING
+ VALUE ""
+
+FACET <MultiLineString>
+ VALUE 0
+
+FACET <AttributeHelpText>
+ VALUE ""
+
+FACET <AttributeRegularExpression>
+ VALUE ""
+
+ATTRIBUTE <available_types>
+ TYPE STRING
+ VALUE ""
+
+FACET <MultiLineString>
+ VALUE 0
+
+FACET <AttributeHelpText>
+ VALUE ""
+
+FACET <AttributeRegularExpression>
+ VALUE ""
+
+ATTRIBUTE <select_type>
+ TYPE PROGRAMCALL
+
+FACET <EnumerationDomain>
+ VALUE "ITEM \"Select type\"
+
+CC \"Modeling\" GET_ACT_MODEL
+PSM_SELECT_TYPE objID:(objid) modelID:(modelid)"
+
+FACET <MultiLineString>
+ VALUE 0
+
+FACET <AttributeHelpText>
+ VALUE ""
+
+FACET <AttributeRegularExpression>
+ VALUE ""
+
+ATTRIBUTE <select_type>
+ VALUE "Select type"
+
+ATTRIBUTE <Position>
+ VALUE ""
+
+ATTRIBUTE <External tool coupling>
+ VALUE ""
+
 CLASS <application_logic> : <__D-construct__>
 
 CLASSATTRIBUTE <ClassAbstract>
