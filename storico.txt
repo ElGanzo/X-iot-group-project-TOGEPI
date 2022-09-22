@@ -6,6 +6,8 @@ manually merged 21/9/2022
 MEMO
 Modeltype metadata
 TODO ricontrollare gli attributi di X-IoT modeltypemetadata
+librarymetadata start:1919 su xiot, 6988 - 9857 su flow
+8011 errore "class does not exist"
 
 
 X-IOT class ModelTypeMetaData attributes not present in Floware
@@ -15,3 +17,8 @@ X-IOT class ModelTypeMetaData attributes not present in Floware
 -Logic
 -Model Type
 -Platform
+
+
+X-IOT class LibraryMetaData attributes not present in Floware:
+
+none

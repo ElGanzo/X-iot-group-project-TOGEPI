@@ -1916,110 +1916,2875 @@ FACET <AttributeHelpText>
 FACET <AttributeRegularExpression>
  VALUE ""
 
+//================================================================================
 CLASS <__LibraryMetaData__> : <__D-construct__>
+//================================================================================
 
-CLASSATTRIBUTE <homedir>
- TYPE STRING
- VALUE "c:\\Program Files\\BOC\\ADOxx15_EN_SA\\"
+//--- Class <__LibraryMetaData__> - Class attributes------------------------------
 
-FACET <MultiLineString>
- VALUE 0
-
-FACET <AttributeHelpText>
- VALUE ""
-
-FACET <AttributeRegularExpression>
- VALUE ""
-
-CLASSATTRIBUTE <__ModelListChangeCounter__>
- TYPE INTEGER
- VALUE 0
-
-FACET <MultiLineString>
- VALUE 0
-
-FACET <AttributeHelpText>
- VALUE ""
-
-FACET <AttributeRegularExpression>
- VALUE ""
-
-FACET <AttributeNumericDomain>
- VALUE ""
-
-CLASSATTRIBUTE <__APListChangeCounter__>
- TYPE INTEGER
- VALUE 0
-
-FACET <MultiLineString>
- VALUE 0
-
-FACET <AttributeHelpText>
- VALUE ""
-
-FACET <AttributeRegularExpression>
- VALUE ""
-
-FACET <AttributeNumericDomain>
- VALUE ""
-
-CLASSATTRIBUTE <__UserListChangeCounter__>
- TYPE INTEGER
- VALUE 0
-
-FACET <MultiLineString>
- VALUE 0
-
-FACET <AttributeHelpText>
- VALUE ""
-
-FACET <AttributeRegularExpression>
- VALUE ""
-
-FACET <AttributeNumericDomain>
- VALUE ""
-
-CLASSATTRIBUTE <ClassAbstract>
- VALUE 1
-
-CLASSATTRIBUTE <ClassVisible>
- VALUE 1
-
-CLASSATTRIBUTE <GraphRep>
- VALUE ""
-
-CLASSATTRIBUTE <VisibleAttrs>
- VALUE ""
-
-CLASSATTRIBUTE <AttrRep>
- VALUE "NOTEBOOK
+	CLASSATTRIBUTE <Doku>
+	TYPE STRING
+	VALUE "NOTEBOOK
 CHAPTER \"Description\"
-ATTR \"Name\"
+ATTR \"Keywords\" lines:5
+ATTR \"Description\" lines:5
+ATTR \"Comment\" lines:5
+CHAPTER \"User attributes\"
+ATTR \"Model type\"
+ATTR \"State\"
+ATTR \"Reviewed on\"
+ATTR \"Reviewed by\"
+CHAPTER \"System attributes\"
+ATTR \"Author\" write-protected
+ATTR \"Creation date\" write-protected
+ATTR \"Last user\" write-protected
+ATTR \"Date last changed\" write-protected
+ATTR \"Number of objects and relations\" write-protected
+ATTR \"Context of version\" write-protected
+CHAPTER \"Deutsch\"
+ATTR \"Bezeichnung\"
+ATTR \"Beschreibung\" lines:5
+ATTR \"Kommentar\" lines:5
 "
 
-CLASSATTRIBUTE <WF_Trans>
- VALUE ""
+		FACET <MultiLineString>
+		VALUE 0
 
-CLASSATTRIBUTE <AnimRep>
- VALUE ""
+		FACET <AttributeHelpText>
+		VALUE ""
 
-CLASSATTRIBUTE <HlpTxt>
- VALUE ""
+		FACET <AttributeRegularExpression>
+		VALUE ""
 
-CLASSATTRIBUTE <Model pointer>
- VALUE ""
 
-CLASSATTRIBUTE <Class cardinality>
- VALUE ""
+	CLASSATTRIBUTE <DokuSim>
+	TYPE STRING
+	VALUE "NOTEBOOK
+CHAPTER \"Description\"
+ATTR \"Keywords\" lines:5
+ATTR \"Description\" lines:5
+ATTR \"Comment\" lines:5
+CHAPTER \"User attributes\"
+ATTR \"Model type\"
+ATTR \"State\"
+ATTR \"Reviewed on\"
+ATTR \"Reviewed by\"
+CHAPTER \"System attributes\"
+ATTR \"Author\" write-protected
+ATTR \"Creation date\" write-protected
+ATTR \"Last user\" write-protected
+ATTR \"Date last changed\" write-protected
+ATTR \"Number of objects and relations\" write-protected
+ATTR \"Context of version\" write-protected
+CHAPTER \"Deutsch\"
+ATTR \"Bezeichnung\"
+ATTR \"Beschreibung\" lines:5
+ATTR \"Kommentar\" lines:5
+"
 
-CLASSATTRIBUTE <Monochrome view>
- VALUE "no"
+		FACET <MultiLineString>
+		VALUE 0
 
-ATTRIBUTE <Position>
- VALUE ""
+		FACET <AttributeHelpText>
+		VALUE ""
 
-ATTRIBUTE <External tool coupling>
- VALUE ""
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <homedir>
+	TYPE STRING
+	VALUE "c:\\Program Files\\BOC\\ADOxx15_EN_SA\\"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Display subprocesses>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Sort mode>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Width search@Depth search"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Sort mode>
+	VALUE "Width search"
+
+
+	CLASSATTRIBUTE <Mode>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting does not influence which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Attribute mode>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Create graphics>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Page layout>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Select from following options:
+
+\"do not split graphic files\": The graphic will be automatically resized to fit into one page
+
+\"Full page (without header/footer)\": The graphic will be generated in its original size (also over "
+		      "many pages) without additional layout elements.    
+
+\"ADOxx standard page layout\": A layout defined for overall use.
+
+\"Apply layout settings from model\": Apply the settings from the menu \"View\" - menu item \"Page la"
+		      "yout\" also for WORD generation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Orientation>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Graphic file mode>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@do not change"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting influences which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Mode (BP)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Flow@Flow - including Risks and Controls@Flow - including Variables and Random generators@Flow - incl"
+		      "uding Resources@Flow - including Performance indicators@All modelling objects@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting does not influence which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (BP)>
+	VALUE "Flow"
+
+
+	CLASSATTRIBUTE <Attribute mode (BP)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (BP)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Create graphics (BP)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Page layout (BP)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Select from following options:
+
+\"do not split graphic files\": The graphic will be automatically resized to fit into one page
+
+\"Full page (without header/footer)\": The graphic will be generated in its original size (also over "
+		      "many pages) without additional layout elements.    
+
+\"ADOxx standard page layout\": A layout defined for overall use.
+
+\"Apply layout settings from model\": Apply the settings from the menu \"View\" - menu item \"Page la"
+		      "yout\" also for WORD generation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (BP)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Orientation (BP)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (BP)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Graphic file mode (BP)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Flow@Flow - including Risks and Controls@Flow - including Variables and Random generators@Flow - incl"
+		      "uding Resources@Flow - including Performance indicators@All modelling objects@Documentation@do not ch"
+		      "ange"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting influences which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (BP)>
+	VALUE "Flow"
+
+
+	CLASSATTRIBUTE <Mode (CM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Standard - including Performance indicators@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting does not influence which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (CM)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Attribute mode (CM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (CM)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Create graphics (CM)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Page layout (CM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Select from following options:
+
+\"do not split graphic files\": The graphic will be automatically resized to fit into one page
+
+\"Full page (without header/footer)\": The graphic will be generated in its original size (also over "
+		      "many pages) without additional layout elements.    
+
+\"ADOxx standard page layout\": A layout defined for overall use.
+
+\"Apply layout settings from model\": Apply the settings from the menu \"View\" - menu item \"Page la"
+		      "yout\" also for WORD generation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (CM)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Orientation (CM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (CM)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Graphic file mode (CM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation@do not change"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting influences which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (CM)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Mode (UC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting does not influence which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (UC)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Attribute mode (UC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (UC)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Create graphics (UC)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Page layout (UC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Select from following options:
+
+\"do not split graphic files\": The graphic will be automatically resized to fit into one page
+
+\"Full page (without header/footer)\": The graphic will be generated in its original size (also over "
+		      "many pages) without additional layout elements.    
+
+\"ADOxx standard page layout\": A layout defined for overall use.
+
+\"Apply layout settings from model\": Apply the settings from the menu \"View\" - menu item \"Page la"
+		      "yout\" also for WORD generation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (UC)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Orientation (UC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (UC)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Graphic file mode (UC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation@do not change"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting influences which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (UC)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Mode (WE)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Standard - including Resources@Standard - with cost center@Organization@Role diagram@Resourc"
+		      "e diagram@All modelling objects@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting does not influence which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (WE)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Attribute mode (WE)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (WE)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Create graphics (WE)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Page layout (WE)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Select from following options:
+
+\"do not split graphic files\": The graphic will be automatically resized to fit into one page
+
+\"Full page (without header/footer)\": The graphic will be generated in its original size (also over "
+		      "many pages) without additional layout elements.    
+
+\"ADOxx standard page layout\": A layout defined for overall use.
+
+\"Apply layout settings from model\": Apply the settings from the menu \"View\" - menu item \"Page la"
+		      "yout\" also for WORD generation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (WE)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Orientation (WE)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (WE)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Graphic file mode (WE)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Standard - including Resources@Standard - with cost center@Organization@Role diagram@Resourc"
+		      "e diagram@All modelling objects@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting influences which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (WE)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Export of entire model structure>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Apply model type specific settings>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Mode (DOC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting does not influence which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (DOC)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Attribute mode (DOC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (DOC)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Graphic file mode (DOC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation@do not change"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting influences which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (DOC)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Orientation (DOC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (DOC)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Page layout (DOC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Select from following options:
+
+\"do not split graphic files\": The graphic will be automatically resized to fit into one page
+
+\"Full page (without header/footer)\": The graphic will be generated in its original size (also over "
+		      "many pages) without additional layout elements.    
+
+\"ADOxx standard page layout\": A layout defined for overall use.
+
+\"Apply layout settings from model\": Apply the settings from the menu \"View\" - menu item \"Page la"
+		      "yout\" also for WORD generation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (DOC)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Create graphics (DOC)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Language>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "English"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The chosen language does not apply to the graphical representation of a model.
+
+To change the language for visualised attributes in the graphical representation, choose from the men"
+		      "u \"View\" the menu entry \"Views\" and there the submenu entry \"Select the language for visualising"
+		      " the attributes\". Follow the onscreen instructions."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Language>
+	VALUE "English"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (BP)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (BP)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (CM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (CM)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (DOC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (DOC)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (UC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (UC)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (WE)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (WE)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Graphic format for HTML>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "jpg@png@svg"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for HTML>
+	VALUE "png"
+
+
+	CLASSATTRIBUTE <Graphic format for HTML (UC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "jpg@png@svg"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for HTML (UC)>
+	VALUE "png"
+
+
+	CLASSATTRIBUTE <Graphic format for HTML (WE)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "jpg@png@svg"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for HTML (WE)>
+	VALUE "png"
+
+
+	CLASSATTRIBUTE <Graphic format for HTML (DOC)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "jpg@png@svg"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for HTML (DOC)>
+	VALUE "png"
+
+
+	CLASSATTRIBUTE <Graphic format for HTML (BP)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "jpg@png@svg"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for HTML (BP)>
+	VALUE "png"
+
+
+	CLASSATTRIBUTE <Graphic format for HTML (CM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "jpg@png@svg"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for HTML (CM)>
+	VALUE "png"
+
+
+	CLASSATTRIBUTE <Cockpit>
+	TYPE STRING
+	VALUE "NOTEBOOK
+CHAPTER \"Description\"
+ATTR \"Keywords\" lines:5
+ATTR \"Description\" lines:5
+ATTR \"Comment\" lines:5
+CHAPTER \"User attributes\"
+ATTR \"Model type\"
+ATTR \"State\"
+ATTR \"Reviewed on\"
+ATTR \"Reviewed by\"
+CHAPTER \"System attributes\"
+ATTR \"Author\" write-protected
+ATTR \"Creation date\" write-protected
+ATTR \"Last user\" write-protected
+ATTR \"Date of last change\" write-protected
+ATTR \"Number of objects and relations\" write-protected
+ATTR \"Context of version\" write-protected
+CHAPTER \"Deutsch\"
+ATTR \"Bezeichnung\"
+ATTR \"Beschreibung\" lines:5
+ATTR \"Kommentar\" lines:5
+"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <filename>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <tempfilename>
+	TYPE STRING
+	VALUE "C:\\Users\\Riccardo\\AppData\\Local\\Temp\\ado95a516a3-0faf-4144-988a-01b661aff7eb"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Model tree>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "with applet@without applet"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Model tree>
+	VALUE "with applet"
+
+
+	CLASSATTRIBUTE <Copy referenced documents>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "@documents\\\\"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Copy referenced documents>
+	VALUE "documents\\\\"
+
+
+	CLASSATTRIBUTE <Attribute mode (PM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (PM)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Attribute mode (ITS)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (ITS)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Create graphics (PM)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Create graphics (ITS)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Graphic format for HTML (PM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "jpg@png@svg"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for HTML (PM)>
+	VALUE "png"
+
+
+	CLASSATTRIBUTE <Graphic format for HTML (ITS)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "jpg@png@svg"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for HTML (ITS)>
+	VALUE "png"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (PM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (PM)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (ITS)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (ITS)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Mode (PM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Standard - including Performance indicators@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting does not influence which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (PM)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Mode (ITS)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Service overview@Application overview@Infrastructure element overview@Standard - including P"
+		      "erformance indicators@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting does not influence which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (ITS)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Graphic file mode (PM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Standard - including Performance indicators@Documentation@do not change"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting influences which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (PM)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Graphic file mode (ITS)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Service overview@Application overview@Infrastructure element overview@Standard - including P"
+		      "erformance indicators@Documentation@do not change"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting influences which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (ITS)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Orientation (PM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (PM)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Orientation (ITS)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (ITS)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Page layout (PM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Select from following options:
+
+\"do not split graphic files\": The graphic will be automatically resized to fit into one page
+
+\"Full page (without header/footer)\": The graphic will be generated in its original size (also over "
+		      "many pages) without additional layout elements.    
+
+\"ADOxx standard page layout\": A layout defined for overall use.
+
+\"Apply layout settings from model\": Apply the settings from the menu \"View\" - menu item \"Page la"
+		      "yout\" also for WORD generation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (PM)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Page layout (ITS)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Select from following options:
+
+\"do not split graphic files\": The graphic will be automatically resized to fit into one page
+
+\"Full page (without header/footer)\": The graphic will be generated in its original size (also over "
+		      "many pages) without additional layout elements.    
+
+\"ADOxx standard page layout\": A layout defined for overall use.
+
+\"Apply layout settings from model\": Apply the settings from the menu \"View\" - menu item \"Page la"
+		      "yout\" also for WORD generation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (ITS)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Zoom frame>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "no@yes"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Zoom frame>
+	VALUE "yes"
+
+
+	CLASSATTRIBUTE <__DOCU_copydocs__>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "@documents\\\\"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <__DOCU_copydocs__>
+	VALUE ""
+
+
+	CLASSATTRIBUTE <__DOCU_zoomlevels__>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "@56;37"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <__DOCU_zoomlevels__>
+	VALUE ""
+
+
+	CLASSATTRIBUTE <Show preferences before the generation>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "yes@no"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Show preferences before the generation>
+	VALUE "no"
+
+
+	CLASSATTRIBUTE <Attribute mode (RM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (RM)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Attribute mode (COM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (COM)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Attribute mode (BPD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (BPD)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Create graphics (RM)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Create graphics (COM)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Create graphics (BPD)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Graphic format for HTML (RM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "jpg@png@svg"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for HTML (RM)>
+	VALUE "png"
+
+
+	CLASSATTRIBUTE <Graphic format for HTML (COM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "jpg@png@svg"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for HTML (COM)>
+	VALUE "png"
+
+
+	CLASSATTRIBUTE <Graphic format for HTML (BPD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "jpg@png@svg"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for HTML (BPD)>
+	VALUE "png"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (RM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (RM)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (COM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (COM)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (BPD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (BPD)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Mode (RM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting does not influence which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (RM)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Mode (COM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting does not influence which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (COM)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Mode (BPD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting does not influence which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (BPD)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Graphic file mode (RM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation@do not change"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting influences which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (RM)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Graphic file mode (COM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation@do not change"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting influences which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (COM)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Graphic file mode (BPD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation@do not change"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "While generating a documentation, the instance information is created only for the classes defined in"
+		      " the library attribute  \"Modi\" for the selected mode.
+
+This setting influences which classes will be displayed on the generated graphic."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (BPD)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Orientation (RM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (RM)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Orientation (COM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD')."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (COM)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Orientation (BPD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "The generation of rotated graphics for WORD documentation is possible only when BMP graphic format is"
+		      " selected (attribute 'Graphic format for WORD').
+"
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (BPD)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Page layout (RM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Select from following options:
+
+\"do not split graphic files\": The graphic will be automatically resized to fit into one page
+
+\"Full page (without header/footer)\": The graphic will be generated in its original size (also over "
+		      "many pages) without additional layout elements.    
+
+\"ADOxx standard page layout\": A layout defined for overall use.
+
+\"Apply layout settings from model\": Apply the settings from the menu \"View\" - menu item \"Page la"
+		      "yout\" also for WORD generation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (RM)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Page layout (COM)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Select from following options:
+
+\"do not split graphic files\": The graphic will be automatically resized to fit into one page
+
+\"Full page (without header/footer)\": The graphic will be generated in its original size (also over "
+		      "many pages) without additional layout elements.    
+
+\"ADOxx standard page layout\": A layout defined for overall use.
+
+\"Apply layout settings from model\": Apply the settings from the menu \"View\" - menu item \"Page la"
+		      "yout\" also for WORD generation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (COM)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Page layout (BPD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "Select from following options:
+
+\"do not split graphic files\": The graphic will be automatically resized to fit into one page
+
+\"Full page (without header/footer)\": The graphic will be generated in its original size (also over "
+		      "many pages) without additional layout elements.    
+
+\"ADOxx standard page layout\": A layout defined for overall use.
+
+\"Apply layout settings from model\": Apply the settings from the menu \"View\" - menu item \"Page la"
+		      "yout\" also for WORD generation."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (BPD)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Character encoding for documentation>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Western Europe@Eastern Europe@Cyrillic"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Character encoding for documentation>
+	VALUE "Western Europe"
+
+
+	CLASSATTRIBUTE <Character map file>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "WesternEuropean.cmt@CentralEuropean.cmt@Cyrillic.cmt"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE "In order to properly display special characters in the HTML/WORD documentation generated from ADONIS®"
+		      ":Community Edition, user must choose an appropriate character map table file corresponding to the ope"
+		      "rating system language."
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Character map file>
+	VALUE "WesternEuropean.cmt"
+
+
+	CLASSATTRIBUTE <__ModelListChangeCounter__>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Mode (BPD 2.0)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Business Process Diagram@BPMN 2.0 All modelling objects@Advanced simulation@With KPIs@All modelling o"
+		      "bjects@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (BPD 2.0)>
+	VALUE "Business Process Diagram"
+
+
+	CLASSATTRIBUTE <Attribute mode (BPD 2.0)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (BPD 2.0)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Create graphics (BPD 2.0)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Graphic file mode (BPD 2.0)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Business Process Diagram@BPMN 2.0 All modelling objects@Advanced simulation@With KPIs@All modelling o"
+		      "bjects@Documentation@do not change"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (BPD 2.0)>
+	VALUE "Business Process Diagram"
+
+
+	CLASSATTRIBUTE <Orientation (BPD 2.0)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (BPD 2.0)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Page layout (BPD 2.0)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (BPD 2.0)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (BPD 2.0)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (BPD 2.0)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Mode (CHD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (CHD)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Mode (COD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Mode (COD)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Attribute mode (CHD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (CHD)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Attribute mode (COD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Documentation@Documentation with simulation data"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Attribute mode (COD)>
+	VALUE "Documentation"
+
+
+	CLASSATTRIBUTE <Create graphics (CHD)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Create graphics (COD)>
+	TYPE INTEGER
+	VALUE 1
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Graphic file mode (CHD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation@do not change"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (CHD)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Graphic file mode (COD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "Standard@Documentation@do not change"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic file mode (COD)>
+	VALUE "Standard"
+
+
+	CLASSATTRIBUTE <Page layout (CHD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (CHD)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Page layout (COD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not split graphic files@Full page (without header/footer)@ADOxx standard page layout@Apply layout "
+		      "settings from model"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Page layout (COD)>
+	VALUE "do not split graphic files"
+
+
+	CLASSATTRIBUTE <Orientation (CHD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (CHD)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Orientation (COD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "do not change@rotate left (counter clockwise)@rotate right (clockwise)@rotate by 180°"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Orientation (COD)>
+	VALUE "do not change"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (CHD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (CHD)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <Graphic format for WORD (COD)>
+	TYPE ENUMERATION
+
+		FACET <EnumerationDomain>
+		VALUE "bmp"
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+	CLASSATTRIBUTE <Graphic format for WORD (COD)>
+	VALUE "bmp"
+
+
+	CLASSATTRIBUTE <__APListChangeCounter__>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <Attribute and class filter>
+	TYPE LONGSTRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <__UserListChangeCounter__>
+	TYPE INTEGER
+	VALUE 0
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+		FACET <AttributeNumericDomain>
+		VALUE ""
+
+
+	CLASSATTRIBUTE <ClassAbstract>
+	VALUE 1
+
+
+	CLASSATTRIBUTE <ClassVisible>
+	VALUE 1
+
+
+	CLASSATTRIBUTE <GraphRep>
+	VALUE ""
+
+
+	CLASSATTRIBUTE <VisibleAttrs>
+	VALUE ""
+
+
+	CLASSATTRIBUTE <AttrRep>
+	VALUE "NOTEBOOK
+
+CHAPTER \"Description\"
+ATTR \"Keywords\" lines:5
+ATTR \"Description\" lines:5
+ATTR \"Comment\" lines:5
+
+CHAPTER \"User attributes\"
+ATTR \"Model type\"
+ATTR \"State\"
+ATTR \"Reviewed on\"
+ATTR \"Reviewed by\"
+
+CHAPTER \"System attributes\"
+ATTR \"Author\" write-protected
+ATTR \"Creation date\" write-protected
+ATTR \"Last user\" write-protected
+ATTR \"Date last changed\" write-protected
+ATTR \"Number of objects and relations\" write-protected
+ATTR \"Context of version\" write-protected
+
+CHAPTER \"Deutsch\"
+ATTR \"Bezeichnung\"
+ATTR \"Beschreibung\" lines:5
+ATTR \"Kommentar\" lines:5
+"
+
+
+	CLASSATTRIBUTE <WF_Trans>
+	VALUE ""
+
+
+	CLASSATTRIBUTE <AnimRep>
+	VALUE ""
+
+
+	CLASSATTRIBUTE <HlpTxt>
+	VALUE ""
+
+
+	CLASSATTRIBUTE <Model pointer>
+	VALUE ""
+
+
+	CLASSATTRIBUTE <Class cardinality>
+	VALUE ""
+
+
+	CLASSATTRIBUTE <Monochrome view>
+	VALUE "no"
+
+
+//--- Class <__LibraryMetaData__> - Instance attributes---------------------------
+
+	ATTRIBUTE <Online Selection of Docu Contents>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+	ATTRIBUTE <str_TopModelID>
+	TYPE STRING
+	VALUE ""
+
+		FACET <MultiLineString>
+		VALUE 0
+
+		FACET <AttributeHelpText>
+		VALUE ""
+
+		FACET <AttributeRegularExpression>
+		VALUE ""
+
+
+//--- Class <__LibraryMetaData__> - default values--------------------------------
+
+	ATTRIBUTE <Position>
+	VALUE ""
+
+
+	ATTRIBUTE <External tool coupling>
+	VALUE ""
+
+
+	ATTRIBUTE <fontcolor>
+	VALUE "EXPR type:string expr:(set(targets, ctobjs(\"Is inside\")),
+cond
+  (tokcnt(targets,\" \")=0,\"black\",
+    (cond
+      (tokcnt(targets,\" \")=1,aval (VAL ctobjs(\"Is inside\"), \"Fontcolor\"),
+    (
+    set(tk,token(targets,0,\" \")),
+                set(t,VAL (copy(aval(VAL tk, \"Position\"),search(aval(VAL tk, \"Position\"),\"index\""
+	      ",0)+6,-1))),
+    fortok(x,targets,\" \",
+        (
+        set(c,VAL (copy(aval(VAL x, \"Position\"),search(aval(VAL x, \"Position\"),\"index\",0)+6,-1)"
+	      ")),
+        cond(c>=t,(set(res,x),set(t,c)),\"\")
+        )),
+                aval (VAL res, \"Fontcolor\")
+    ))
+   )
+  ))"
+
+
+	ATTRIBUTE <Categories>
+	VALUE ""
+
+
+	ATTRIBUTE <Documentation>
+	VALUE ""
+
+
 
 //================================================================================
 CLASS <__ModelTypeMetaData__> : <__D-construct__>
