@@ -12288,24 +12288,6 @@ FACET <AttributeRegularExpression>
 ATTRIBUTE <Data Type>
  VALUE "String"
 
-ATTRIBUTE <devicedetail>
- TYPE INTERREF
-
-FACET <MultiLineString>
- VALUE 0
-
-FACET <AttributeHelpText>
- VALUE ""
-
-FACET <AttributeRegularExpression>
- VALUE ""
-
-FACET <AttributeInterRefDomain>
- VALUE "REFDOMAIN"
-
-ATTRIBUTE <devicedetail>
- VALUE ""
-
 ATTRIBUTE <Position>
  VALUE ""
 
@@ -13225,9 +13207,6 @@ ATTRIBUTE <Coverage>
 
 ATTRIBUTE <Data Type>
  VALUE "String"
-
-ATTRIBUTE <devicedetail>
- VALUE ""
 
 CLASS <DOfeature> : <Feature>
 
@@ -14154,9 +14133,6 @@ ATTRIBUTE <Coverage>
 ATTRIBUTE <Data Type>
  VALUE "String"
 
-ATTRIBUTE <devicedetail>
- VALUE ""
-
 CLASS <Device> : <Feature>
 
 CLASSATTRIBUTE <ClassAbstract>
@@ -15061,9 +15037,6 @@ ATTRIBUTE <Coverage>
 ATTRIBUTE <Data Type>
  VALUE "String"
 
-ATTRIBUTE <devicedetail>
- VALUE ""
-
 CLASS <System> : <Feature>
 
 CLASSATTRIBUTE <ClassAbstract>
@@ -15944,9 +15917,6 @@ ATTRIBUTE <Coverage>
 
 ATTRIBUTE <Data Type>
  VALUE "String"
-
-ATTRIBUTE <devicedetail>
- VALUE ""
 
 CLASS <Operation> : <Feature>
 
@@ -16845,9 +16815,6 @@ ATTRIBUTE <Coverage>
 
 ATTRIBUTE <Data Type>
  VALUE "String"
-
-ATTRIBUTE <devicedetail>
- VALUE ""
 
 RELATIONCLASS <hasService>
 FROM <entity>
