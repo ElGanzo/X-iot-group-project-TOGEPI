@@ -1634,7 +1634,49 @@ ATTRIBUTE <Description>
 VALUE ""
 
 ATTRIBUTE <Modi>
-VALUE "MODELTYPE \"IoT Scenario\" attrrep:\"IoTPlatform AttrRep\"
+VALUE "GENERAL order-of-classes:custom
+DISPLAYED_MODELATTR \"State\" default-hidden
+enum-value1:\"In process\" bitmap1:\"db:\\\\symbol_state_s_draft.bmp\"
+enum-value2:\"Ready\" bitmap2:\"db:\\\\symbol_state_s_qa.bmp\"
+enum-value3:\"Reviewed\" bitmap3:\"db:\\\\symbol_state_s_released.bmp\"
+
+
+MODELTYPE \"Feature Model\" from:none plural:\"Features Models\" pos:0 not-simulateable bitmap:\"db:\\"
+	      "\\fm.bmp\"
+
+INCL \"Feature\"
+INCL \"System\"
+INCL \"Device\"
+#INCL \"Operation\"
+INCL \"AND\"
+INCL \"OR\"
+INCL \"Mandatory\"
+INCL \"Optional\"
+INCL \"Include\"
+INCL \"IncludeTwoWay\"
+INCL \"Exclude\"
+MODE \"PIM\" from:all
+MODE \"PSM\" from:all
+
+
+MODELTYPE \"Feature Operation Model\" from:none plural:\"Feature Operations Models\" pos:0 not-simula"
+	      "teable bitmap:\"db:\\\\fm.bmp\"
+
+
+INCL \"Device\"
+INCL \"Operation\"
+INCL \"AND\"
+INCL \"OR\"
+INCL \"Mandatory\"
+INCL \"Optional\"
+INCL \"Include\"
+INCL \"IncludeTwoWay\"
+INCL \"Exclude\"
+MODE \"PIM\" from:all
+MODE \"PSM\" from:all
+
+
+MODELTYPE \"IoT Scenario\" attrrep:\"IoTPlatform AttrRep\"
 
 # Entity Management
 INCL \"system\"
@@ -19135,7 +19177,12 @@ Through this relation local variables of a main process can be referenced in a s
 
 The relation \"Parameter\" assigns an object of the class \"Subprocess\" a variable that can be referenced in a subprocess."
 
+
+//================================================================================
+//================================================================================
 WORKING ENVIRONMENT LIBRARY <X-IoT Library (Static)>
+//================================================================================
+//================================================================================
 
 ATTRIBUTE <Version number>
 VALUE ""
@@ -19156,7 +19203,64 @@ ATTRIBUTE <Description>
 VALUE ""
 
 ATTRIBUTE <Modi>
-VALUE " "
+VALUE "MODELTYPE \"Working environment model\" from:none plural:\"Working environment models\" pos:8 attrrep"
+	      ":\"WE Model Attributes\" graphrep:\"BP Model Graphrep\"
+INCL \"Swimlane (vertical)\"
+INCL \"Swimlane (horizontal)\"
+INCL \"Organizational unit\"
+INCL \"Performer\"
+INCL \"Role\"
+INCL \"Position\"
+INCL \"Resource\"
+INCL \"Cost center\"
+INCL \"Aggregation\"
+INCL \"Note\"
+INCL \"Is subordinated\"
+INCL \"has Resource\"
+INCL \"Belongs to\"
+INCL \"Is manager\"
+INCL \"Has role\"
+INCL \"has position\"
+INCL \"Uses resource\"
+INCL \"Is charged to\"
+INCL \"Is cost center manager\"
+INCL \"has Note\"
+
+MODE \"Standard\" from:all
+EXCL \"Resource\"
+EXCL \"Cost center\"
+EXCL \"Position\"
+
+MODE \"Standard - including Resources\" from:all
+EXCL \"Cost center\"
+EXCL \"Position\"
+
+MODE \"Standard - with cost center\" from:all
+EXCL \"Resource\"
+EXCL \"Position\"
+
+MODE \"Organization\" from:all
+EXCL \"Performer\"
+EXCL \"Role\"
+EXCL \"Resource\"
+EXCL \"Cost center\"
+
+MODE \"Role diagram\" from:all
+EXCL \"Organizational unit\"
+EXCL \"Performer\"
+EXCL \"Position\"
+EXCL \"Resource\"
+EXCL \"Cost center\"
+
+MODE \"Resource diagram\" from:all
+EXCL \"Role\"
+EXCL \"Belongs to\"
+EXCL \"Is manager\"
+EXCL \"Position\"
+EXCL \"Cost center\"
+
+MODE \"All modelling objects\" from:all
+MODE \"Documentation\" from:all no-modeling"
 
 ATTRIBUTE <Page layouts>
 VALUE ""
@@ -22103,7 +22207,9 @@ ATTRIBUTE <Categories>
 ATTRIBUTE <Documentation>
  VALUE ""
 
+//================================================================================
 CLASS <Aggregation> : <__S_aggregation__>
+//================================================================================
 
 CLASSATTRIBUTE <Doku>
  TYPE STRING
@@ -22113,7 +22219,6 @@ LANG \"en\"
 #-----------------------
 CHAPTER \"Description\"
 ATTR \"Name\"
-ATTR \"Referenced Group\"
 ATTR \"Description\" 
 ATTR \"Comment\" "
 
@@ -22134,7 +22239,6 @@ LANG \"en\"
 #-----------------------
 CHAPTER \"Description\"
 ATTR \"Name\"
-ATTR \"Referenced Group\"
 ATTR \"Description\" 
 ATTR \"Comment\" "
 
@@ -22455,7 +22559,6 @@ ATTR \"Font size\"
 ATTR \"Font style\"
 ENDGROUP
 GROUP \"BPMN\"
-ATTR \"Referenced Group\"
 ENDGROUP
 ATTR \"Description\" lines:5
 ATTR \"Comment\" lines:5
@@ -22743,29 +22846,6 @@ FACET <AttributeRegularExpression>
 
 ATTRIBUTE <Graphical representation>
  VALUE "Rectangle"
-
-ATTRIBUTE <Referenced Group>
- TYPE INTERREF
-
-FACET <MultiLineString>
- VALUE 0
-
-FACET <AttributeHelpText>
- VALUE "This attribute allows you to reference an object of class 'Group' from a 'Business process diagram (BPMN 2.0)'."
-
-FACET <AttributeRegularExpression>
- VALUE ""
-
-FACET <AttributeInterRefDomain>
- VALUE "REFDOMAIN max:1
-OBJREF
-     mt:\"Business process diagram (BPMN 2.0)\"
-     c:\"Group\"
-     max:1
-"
-
-ATTRIBUTE <Referenced Group>
- VALUE ""
 
 ATTRIBUTE <Transparent>
  TYPE ENUMERATION
