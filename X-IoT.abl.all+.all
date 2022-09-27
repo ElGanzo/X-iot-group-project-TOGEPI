@@ -1939,17 +1939,31 @@ ON_EVENT \"AfterCreateModelingConnector\" {
 #EXECUTE file:(\"C:\\\\Users\\\\arian\\\\Documents\\\\Ado modelling\\\\platform_asc.asc\")
 
 # Create menu items
+
 ITEM \"ThingsBoard\" modeling:\"Conversion\"
 PRESET_PSM platform:(\"ThingsBoard\")
+
 ITEM \"Losant\" modeling:\"Conversion\"
 PRESET_PSM platform:(\"Losant\")
-ITEM \"Generate files\" modeling:\"Conversion\"
+
+#ITEM \"Generate files\" modeling:\"Conversion\"
+#PSM_TO_FILE
+
+ITEM \"Convertion in code\" modeling: \"Generate the Variant\"
 PSM_TO_FILE
+
+ITEM \"PIM to PSM\" modeling: \"Generate the Variant\"
+PIM_TO_PSM
+
 #EXECUTE file:(\"\\\\Users\\\\Luca\\\\Desktop\\\\ADOxx course\\\\AdoScript\\\\convert.asc\")
 #EXECUTE file:(\"\\\\Users\\\\Luca\\\\convert.asc\")
 #ITEM \"Prova\" modeling:\"Conversion\"
 #EXECUTE file:(\"\\\\Users\\\\Luca\\\\Desktop\\\\ADOxx course\\\\AdoScript\\\\prova.asc\")
-#EXECUTE file:(\"\\\\Users\\\\Luca\\\\prova.asc\")"
+#EXECUTE file:(\"\\\\Users\\\\Luca\\\\prova.asc\")\"
+
+ITEM \"Operations\" modeling: \"Generate devices operations\"
+#EXECUTE file:(\"C:\\\\Users\\\\arian\\\\Documents\\\\Dottorato\\\\FloWare\\\\operation.asc\")
+EXECUTE file:(\"db:\\\\operation.asc\")"
 
 ATTRIBUTE <Agent definition>
 VALUE ""
