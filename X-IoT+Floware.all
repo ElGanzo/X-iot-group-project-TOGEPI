@@ -1,6 +1,6 @@
 VERSION <7.2>
 
-APPLICATION LIBRARY <X-IoT Library>
+APPLICATION LIBRARY <X-IoT+Floware Library>
 
 RECORDCLASS <specifications> : <RecordClass>
 
@@ -1613,7 +1613,7 @@ FACET <AttributeRegularExpression>
 ATTRIBUTE <Excel file>
  VALUE ""
 
-BUSINESS PROCESS LIBRARY <X-IoT Library (Dynamic)>
+BUSINESS PROCESS LIBRARY <X-IoT+Floware Library (Dynamic)>
 
 ATTRIBUTE <Version number>
 VALUE ""
@@ -19293,7 +19293,7 @@ The relation \"Parameter\" assigns an object of the class \"Subprocess\" a varia
 
 //================================================================================
 //================================================================================
-WORKING ENVIRONMENT LIBRARY <X-IoT Library (Static)>
+WORKING ENVIRONMENT LIBRARY <X-IoT+Floware Library (Static)>
 //================================================================================
 //================================================================================
 
