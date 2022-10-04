@@ -73,76 +73,76 @@ FACET <AttributeRegularExpression>
 
 RECORDCLASS <Reported Process responsibility> : <RecordClass>
 
-CLASSATTRIBUTE <ClassAbstract>
- VALUE 0
+// CLASSATTRIBUTE <ClassAbstract>
+//  VALUE 0
 
-CLASSATTRIBUTE <ClassVisible>
- VALUE 1
+// CLASSATTRIBUTE <ClassVisible>
+//  VALUE 1
 
-CLASSATTRIBUTE <AttrRep>
- VALUE "NOTEBOOK
-ATTR \"Role/Performer\" width:3
-ATTR \"Classification\" width:2
-ATTR \"Description\" width:2
-"
+// CLASSATTRIBUTE <AttrRep>
+//  VALUE "NOTEBOOK
+// ATTR \"Role/Performer\" width:3
+// ATTR \"Classification\" width:2
+// ATTR \"Description\" width:2
+// "
 
-ATTRIBUTE <Classification>
- TYPE ENUMERATION
+// ATTRIBUTE <Classification>
+//  TYPE ENUMERATION
 
-FACET <EnumerationDomain>
- VALUE "mainly responsible@on behalf of@supporting"
+// FACET <EnumerationDomain>
+//  VALUE "mainly responsible@on behalf of@supporting"
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <AttributeHelpText>
- VALUE "Enter a classification indicator of Process responsibility. For documentation purposes."
+// FACET <AttributeHelpText>
+//  VALUE "Enter a classification indicator of Process responsibility. For documentation purposes."
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-ATTRIBUTE <Classification>
- VALUE "mainly responsible"
+// ATTRIBUTE <Classification>
+//  VALUE "mainly responsible"
 
-ATTRIBUTE <Description>
- TYPE STRING
- VALUE ""
+// ATTRIBUTE <Description>
+//  TYPE STRING
+//  VALUE ""
 
-FACET <MultiLineString>
- VALUE 1
+// FACET <MultiLineString>
+//  VALUE 1
 
-FACET <AttributeHelpText>
- VALUE "Enter a description of the reported process responsibility. For documentation purposes."
+// FACET <AttributeHelpText>
+//  VALUE "Enter a description of the reported process responsibility. For documentation purposes."
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-ATTRIBUTE <Role/Performer>
- TYPE INTERREF
+// ATTRIBUTE <Role/Performer>
+//  TYPE INTERREF
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <AttributeHelpText>
- VALUE "Select a role or performer from a Working environment model responsible for the process"
+// FACET <AttributeHelpText>
+//  VALUE "Select a role or performer from a Working environment model responsible for the process"
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-FACET <AttributeInterRefDomain>
- VALUE "REFDOMAIN max:1
-OBJREF
-     mt:\"Working environment model\"
-     c:\"Role\"
-     max:1
-OBJREF
-     mt:\"Working environment model\"
-     c:\"Performer\"
-     max:1
-"
+// FACET <AttributeInterRefDomain>
+//  VALUE "REFDOMAIN max:1
+// OBJREF
+//      mt:\"Working environment model\"
+//      c:\"Role\"
+//      max:1
+// OBJREF
+//      mt:\"Working environment model\"
+//      c:\"Performer\"
+//      max:1
+// "
 
-ATTRIBUTE <Role/Performer>
- VALUE ""
+// ATTRIBUTE <Role/Performer>
+//  VALUE ""
 
 RECORDCLASS <Further education> : <RecordClass>
 
@@ -189,193 +189,176 @@ FACET <AttributeRegularExpression>
 
 RECORDCLASS <Performance indicator overview> : <RecordClass>
 
-CLASSATTRIBUTE <ClassAbstract>
- VALUE 0
+// CLASSATTRIBUTE <ClassAbstract>
+//  VALUE 0
 
-CLASSATTRIBUTE <ClassVisible>
- VALUE 1
+// CLASSATTRIBUTE <ClassVisible>
+//  VALUE 1
 
-CLASSATTRIBUTE <AttrRep>
- VALUE "NOTEBOOK
-ATTR \"Reference\" format:\"%o\"
-ATTR \"Target value\" write-protected
-ATTR \"Current value\" write-protected
-ATTR \"Status\" write-protected
-ATTR \"Score\" write-protected
-ATTR \"Updated\" write-protected"
+// CLASSATTRIBUTE <AttrRep>
+//  VALUE "NOTEBOOK
+// ATTR \"Reference\" format:\"%o\"
+// ATTR \"Target value\" write-protected
+// ATTR \"Current value\" write-protected
+// ATTR \"Status\" write-protected
+// ATTR \"Score\" write-protected
+// ATTR \"Updated\" write-protected"
 
-ATTRIBUTE <Status>
- TYPE EXPRESSION
- VALUE "EXPR type:string expr:fixed:(
-cond(
-(aval(objid,\"Reference\"))=\"\",set(inhalt,\"\"),
-set (inhalt,aval(objid,\"Reference\"))
-),
-
-
-cond(
-(aval(objid,\"Reference\"))=\"\",\"\",
-(set (zielname,
-aval(VAL (irtobjs(objid,\"Reference\")),\"Entry_Status\")))
-)
-,
+// ATTRIBUTE <Status>
+//  TYPE EXPRESSION
+//  VALUE "EXPR type:string expr:fixed:(
+// cond(
+// (aval(objid,\"Reference\"))=\"\",set(inhalt,\"\"),
+// set (inhalt,aval(objid,\"Reference\"))
+// ),
 
 
-cond(inhalt=\"\",\"\",zielname)
+// cond(
+// (aval(objid,\"Reference\"))=\"\",\"\",
+// (set (zielname,
+// aval(VAL (irtobjs(objid,\"Reference\")),\"Entry_Status\")))
+// )
+// ,
 
 
-
-)"
-
-FACET <MultiLineString>
- VALUE 0
-
-FACET <AttributeHelpText>
- VALUE ""
-
-FACET <AttributeRegularExpression>
- VALUE ""
-
-ATTRIBUTE <Current value>
- TYPE EXPRESSION
- VALUE "EXPR type:string expr:fixed:(
-cond(aval(objid,\"Reference\")=\"\",
-  \"\",
-  aval (VAL irtobjs(objid,\"Reference\"),\"Entry_IST-Wert\"))
-)
-"
-
-FACET <MultiLineString>
- VALUE 0
-
-FACET <AttributeHelpText>
- VALUE ""
-
-FACET <AttributeRegularExpression>
- VALUE ""
-
-ATTRIBUTE <Score>
- TYPE EXPRESSION
- VALUE "EXPR type:string expr:fixed:(
-cond(
-(aval(objid,\"Reference\"))=\"\",set(inhalt,\"\"),
-set (inhalt,aval(objid,\"Reference\"))
-),
-
-
-cond(
-(aval(objid,\"Reference\"))=\"\",\"\",
-(set (zielname,
-aval(VAL (irtobjs(objid,\"Reference\")),\"Scorevalue\")))
-)
-,
-
-
-cond(inhalt=\"\",\"\",zielname)
+// cond(inhalt=\"\",\"\",zielname)
 
 
 
-)"
+// )"
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <AttributeHelpText>
- VALUE ""
+// FACET <AttributeHelpText>
+//  VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-ATTRIBUTE <Target value>
- TYPE EXPRESSION
- VALUE "EXPR type:string expr:fixed:(
-cond(aval(objid,\"Reference\")=\"\",
-  \"\",
-  aval (VAL irtobjs(objid,\"Reference\"),\"Entry_SOLL-Wert\"))
-)
-"
+// ATTRIBUTE <Current value>
+//  TYPE EXPRESSION
+//  VALUE "EXPR type:string expr:fixed:(
+// cond(aval(objid,\"Reference\")=\"\",
+//   \"\",
+//   aval (VAL irtobjs(objid,\"Reference\"),\"Entry_IST-Wert\"))
+// )
+// "
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <AttributeHelpText>
- VALUE ""
+// FACET <AttributeHelpText>
+//  VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-ATTRIBUTE <Updated>
- TYPE EXPRESSION
- VALUE "EXPR type:string expr:fixed:(
-cond(
-(aval(objid,\"Reference\"))=\"\",set(inhalt,\"\"),
-set (inhalt,aval(objid,\"Reference\"))
-),
-
-
-cond(
-(aval(objid,\"Reference\"))=\"\",\"\",
-(set (zielname,
-aval(VAL (irtobjs(objid,\"Reference\")),\"Entry_Updated\")))
-)
-,
+// ATTRIBUTE <Score>
+//  TYPE EXPRESSION
+//  VALUE "EXPR type:string expr:fixed:(
+// cond(
+// (aval(objid,\"Reference\"))=\"\",set(inhalt,\"\"),
+// set (inhalt,aval(objid,\"Reference\"))
+// ),
 
 
-cond(inhalt=\"\",\"\",zielname)
+// cond(
+// (aval(objid,\"Reference\"))=\"\",\"\",
+// (set (zielname,
+// aval(VAL (irtobjs(objid,\"Reference\")),\"Scorevalue\")))
+// )
+// ,
+
+
+// cond(inhalt=\"\",\"\",zielname)
 
 
 
-)"
+// )"
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <AttributeHelpText>
- VALUE ""
+// FACET <AttributeHelpText>
+//  VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-ATTRIBUTE <Reference>
- TYPE INTERREF
+// ATTRIBUTE <Target value>
+//  TYPE EXPRESSION
+//  VALUE "EXPR type:string expr:fixed:(
+// cond(aval(objid,\"Reference\")=\"\",
+//   \"\",
+//   aval (VAL irtobjs(objid,\"Reference\"),\"Entry_SOLL-Wert\"))
+// )
+// "
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <AttributeHelpText>
- VALUE ""
+// FACET <AttributeHelpText>
+//  VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-FACET <AttributeInterRefDomain>
- VALUE "REFDOMAIN max:1
-OBJREF
-     mt:\"Company map\"
-     c:\"Performance indicator\"
-     max:1
-OBJREF
-     mt:\"Business process diagram (BPMN 2.0)\"
-     c:\"Performance indicator\"
-     max:1"
+// ATTRIBUTE <Updated>
+//  TYPE EXPRESSION
+//  VALUE "EXPR type:string expr:fixed:(
+// cond(
+// (aval(objid,\"Reference\"))=\"\",set(inhalt,\"\"),
+// set (inhalt,aval(objid,\"Reference\"))
+// ),
 
-ATTRIBUTE <Reference>
- VALUE ""
+// cond(
+// (aval(objid,\"Reference\"))=\"\",\"\",
+// (set (zielname,
+// aval(VAL (irtobjs(objid,\"Reference\")),\"Entry_Updated\")))
+// )
+// ,
 
-ATTRIBUTE <Referenz>
- TYPE EXPRESSION
- VALUE "EXPR type:string expr:fixed:(
-aval (VAL (irtobjs (\"Reference\")), \"Bezeichnung\"))
-"
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <AttributeHelpText>
+//  VALUE ""
 
-FACET <AttributeHelpText>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// ATTRIBUTE <Reference>
+//  TYPE INTERREF
+
+// )"
+
+// FACET <MultiLineString>
+//  VALUE 0
+
+// FACET <AttributeHelpText>
+//  VALUE ""
+
+// FACET <AttributeRegularExpression>
+//  VALUE ""
+
+// ATTRIBUTE <Reference>
+//  VALUE ""
+
+// ATTRIBUTE <Referenz>
+//  TYPE EXPRESSION
+//  VALUE "EXPR type:string expr:fixed:(
+// aval (VAL (irtobjs (\"Reference\")), \"Bezeichnung\"))
+// "
+
+// FACET <MultiLineString>
+//  VALUE 0
+
+// FACET <AttributeHelpText>
+//  VALUE ""
+
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
 RECORDCLASS <Target_value_indicator> : <RecordClass>
 
@@ -929,106 +912,106 @@ ATTRIBUTE <Result>
 
 RECORDCLASS <Inputsets> : <RecordClass>
 
-CLASSATTRIBUTE <ClassAbstract>
- VALUE 0
+// CLASSATTRIBUTE <ClassAbstract>
+//  VALUE 0
 
-CLASSATTRIBUTE <ClassVisible>
- VALUE 1
+// CLASSATTRIBUTE <ClassVisible>
+//  VALUE 1
 
-CLASSATTRIBUTE <AttrRep>
- VALUE "NOTEBOOK
-ATTR \"Inputset\"
-ATTR \"Inputs\""
+// CLASSATTRIBUTE <AttrRep>
+//  VALUE "NOTEBOOK
+// ATTR \"Inputset\"
+// ATTR \"Inputs\""
 
-ATTRIBUTE <Inputset>
- TYPE STRING
- VALUE ""
+// ATTRIBUTE <Inputset>
+//  TYPE STRING
+//  VALUE ""
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <AttributeHelpText>
- VALUE ""
+// FACET <AttributeHelpText>
+//  VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-ATTRIBUTE <Inputs>
- TYPE INTERREF
+// ATTRIBUTE <Inputs>
+//  TYPE INTERREF
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <AttributeHelpText>
- VALUE ""
+// FACET <AttributeHelpText>
+//  VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-FACET <AttributeInterRefDomain>
- VALUE "REFDOMAIN
-OBJREF
-     mt:\"Business process diagram (BPMN 2.0)\"
-     c:\"Group\"
-OBJREF
-     mt:\"Business process diagram (BPMN 2.0)\"
-     c:\"Text Annotation\"
-"
+// FACET <AttributeInterRefDomain>
+//  VALUE "REFDOMAIN
+// OBJREF
+//      mt:\"Business process diagram (BPMN 2.0)\"
+//      c:\"Group\"
+// OBJREF
+//      mt:\"Business process diagram (BPMN 2.0)\"
+//      c:\"Text Annotation\"
+// "
 
-ATTRIBUTE <Inputs>
- VALUE ""
+// ATTRIBUTE <Inputs>
+//  VALUE ""
 
 RECORDCLASS <Outputsets> : <RecordClass>
 
-CLASSATTRIBUTE <ClassAbstract>
- VALUE 0
+// CLASSATTRIBUTE <ClassAbstract>
+//  VALUE 0
 
-CLASSATTRIBUTE <ClassVisible>
- VALUE 1
+// CLASSATTRIBUTE <ClassVisible>
+//  VALUE 1
 
-CLASSATTRIBUTE <AttrRep>
- VALUE "NOTEBOOK
-ATTR \"Outputset\"
-ATTR \"Outputs\"
-"
+// CLASSATTRIBUTE <AttrRep>
+//  VALUE "NOTEBOOK
+// ATTR \"Outputset\"
+// ATTR \"Outputs\"
+// "
 
-ATTRIBUTE <Outputset>
- TYPE STRING
- VALUE ""
+// ATTRIBUTE <Outputset>
+//  TYPE STRING
+//  VALUE ""
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <AttributeHelpText>
- VALUE ""
+// FACET <AttributeHelpText>
+//  VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-ATTRIBUTE <Outputs>
- TYPE INTERREF
+// ATTRIBUTE <Outputs>
+//  TYPE INTERREF
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <AttributeHelpText>
- VALUE ""
+// FACET <AttributeHelpText>
+//  VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-FACET <AttributeInterRefDomain>
- VALUE "REFDOMAIN
-OBJREF
-     mt:\"Business process diagram (BPMN 2.0)\"
-     c:\"Group\"
-OBJREF
-     mt:\"Business process diagram (BPMN 2.0)\"
-     c:\"Text Annotation\"
-"
+// FACET <AttributeInterRefDomain>
+//  VALUE "REFDOMAIN
+// OBJREF
+//      mt:\"Business process diagram (BPMN 2.0)\"
+//      c:\"Group\"
+// OBJREF
+//      mt:\"Business process diagram (BPMN 2.0)\"
+//      c:\"Text Annotation\"
+// "
 
-ATTRIBUTE <Outputs>
- VALUE ""
+// ATTRIBUTE <Outputs>
+//  VALUE ""
 
 RECORDCLASS <IORules> : <RecordClass>
 
@@ -1135,67 +1118,67 @@ FACET <AttributeRegularExpression>
 
 RECORDCLASS <Controlled by> : <RecordClass>
 
-CLASSATTRIBUTE <ClassAbstract>
- VALUE 0
+// CLASSATTRIBUTE <ClassAbstract>
+//  VALUE 0
 
-CLASSATTRIBUTE <ClassVisible>
- VALUE 1
+// CLASSATTRIBUTE <ClassVisible>
+//  VALUE 1
 
-CLASSATTRIBUTE <AttrRep>
- VALUE "NOTEBOOK
-ATTR \"Type\" width:2 write-protected color:\"black\"
-ATTR \"Reference\" width:8
-"
+// CLASSATTRIBUTE <AttrRep>
+//  VALUE "NOTEBOOK
+// ATTR \"Type\" width:2 write-protected color:\"black\"
+// ATTR \"Reference\" width:8
+// "
 
-ATTRIBUTE <Reference>
- TYPE INTERREF
+// ATTRIBUTE <Reference>
+//  TYPE INTERREF
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <AttributeHelpText>
- VALUE ""
+// FACET <AttributeHelpText>
+//  VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
-FACET <AttributeInterRefDomain>
- VALUE "REFDOMAIN max:1
-OBJREF
-     mt:\"Working environment model\"
-     c:\"Organizational unit\"
-     max:1
-OBJREF
-     mt:\"Working environment model\"
-     c:\"Role\"
-     max:1
-"
+// FACET <AttributeInterRefDomain>
+//  VALUE "REFDOMAIN max:1
+// OBJREF
+//      mt:\"Working environment model\"
+//      c:\"Organizational unit\"
+//      max:1
+// OBJREF
+//      mt:\"Working environment model\"
+//      c:\"Role\"
+//      max:1
+// "
 
-ATTRIBUTE <Reference>
- VALUE ""
+// ATTRIBUTE <Reference>
+//  VALUE ""
 
-ATTRIBUTE <Type>
- TYPE EXPRESSION
- VALUE "EXPR type:string expr:fixed:(
-cond(
-    aval(\"Reference\")=\"\",
-    \"Other\",
-    cond(
-         search(avalf(\"%c\",\"Reference\"),\"System\",0) > 0,
-         \"System\",
-          avalf(\"%c\",\"Reference\")
-         )
-    )
-)"
+// ATTRIBUTE <Type>
+//  TYPE EXPRESSION
+//  VALUE "EXPR type:string expr:fixed:(
+// cond(
+//     aval(\"Reference\")=\"\",
+//     \"Other\",
+//     cond(
+//          search(avalf(\"%c\",\"Reference\"),\"System\",0) > 0,
+//          \"System\",
+//           avalf(\"%c\",\"Reference\")
+//          )
+//     )
+// )"
 
-FACET <MultiLineString>
- VALUE 0
+// FACET <MultiLineString>
+//  VALUE 0
 
-FACET <AttributeHelpText>
- VALUE ""
+// FACET <AttributeHelpText>
+//  VALUE ""
 
-FACET <AttributeRegularExpression>
- VALUE ""
+// FACET <AttributeRegularExpression>
+//  VALUE ""
 
 RECORDCLASS <Requirements for SAP Customizing> : <RecordClass>
 
@@ -1808,9 +1791,9 @@ EXECUTE file:(\"db:\\\\ASC_GlobalFunctions_JSON.asc\")
 EXECUTE file:(\"db:\\\\ASC_RandomDistributions.asc\")
 EXECUTE file:(\"db:\\\\translator.asc\")
 EXECUTE file:(\"db:\\\\mapKeySetFunctions_v2.asc\")
-EXECUTE file:(\"db:\\\\PIM_TO_PSM.asc\")
-EXECUTE file:(\"db:\\\\PSM_TO_FILE.asc\")
-EXECUTE file:(\"db:\\\\PSM_TYPES.asc\")
+#EXECUTE file:(\"db:\\\\PIM_TO_PSM.asc\")
+#EXECUTE file:(\"db:\\\\PSM_TO_FILE.asc\")
+#EXECUTE file:(\"db:\\\\PSM_TYPES.asc\")
 }
 
 ON_EVENT \"AfterEditAttributeValue\" {
@@ -1842,42 +1825,13 @@ ON_EVENT \"AfterCreateModelingConnector\" {
  SET id_model: (modelid)
  SET id_conn: (objid)
 
- # CC \"AdoScript\" INFOBOX \"CONTROLLO CONNETTORI\"
-
  CC \"Core\" GET_CLASS_NAME classid: (id_relationclassid)
  SET str_classname: (classname)
-
- # CC \"Modeling\" CHECK_CARDINALITIES modelid:(modelid) silent nosuccessmessage
-
- # IF (ecode) {
-  # CC \"Core\" DELETE_CONNECTOR modelid:(modelid) objid:(objid)
-  # CC \"AdoScript\" WARNINGBOX \"This relation is not valid and cannot be created.\" title: \"Cardinality check failure\"
-  # EXIT -1
- # }
-
- # IF (ecode = 0) {
-  # CC \"AdoScript\" INFOBOX \"Caridnality ok\"
- # }
- # ELSE
- # {
-  # CC \"AdoScript\" INFOBOX \"Caridnality nok\"
-  # Elimino il connettore
-  #    CC \"Core\" DELETE_CONNECTOR modelid:(id_model) objid:(id_conn)
-
-  #    EXIT -1
- # }
-
- CC \"Core\" GET_ATTR_VAL objid:(modelid) attrname:(\"Model Type\")
- CC \"Core\" GET_CLASS_NAME classid:(classid)
- IF (val = \"PSM\" AND classname = \"contains\") {
-  CC \"Core\" GET_ATTR_VAL objid:(modelid) attrname:(\"Platform\")
-  CONNECTOR_PSM platform:(val) objID:(objid) fromID:(fromobjid)
- }
 
  CC \"Core\" GET_CONNECTORS objid:(id_toinstanceid) in
  SETL str_objids:(objids)
 
- # In pratica se ho più di un connettore dei miei constrain tipi lo blocco
+ # IN pratica se ho più di un connettore dei miei constrain tipi lo blocco
 
  SETL str_ool:\"b\"
  FOR str_objid in:(str_objids) sep:\" \" {
@@ -1885,17 +1839,13 @@ ON_EVENT \"AfterCreateModelingConnector\" {
   CC \"Core\" GET_CLASS_NAME classid:(classid)
     
   IF (classname = \"Domain\" OR classname = \"SpecialCase\" OR classname = \"Mandatory\" OR classna"
-   "me = \"Optional\" OR classname = \"AND\" OR classname = \"OR\" OR classname = \"XSSA\" OR classname ="
-   " \"XSA\" OR classname = \"OSA\") 
-  {
-   # CC \"AdoScript\" INFOBOX (\"E uno dei connettori \" + classname + \" a: \" + str_ool)
+  "me = \"Optional\" OR classname = \"AND\" OR classname = \"OR\" OR classname = \"XSSA\" OR classname ="
+  " \"XSA\" OR classname = \"OSA\") {
    IF (str_ool = \"b\") {
     SETL str_ool:\"a\"
-    # CC \"AdoScript\" INFOBOX (\"A SETTATO: \" + str_ool)
    }
    ELSE {
     # Distruggo il connettore
-    # CC \"AdoScript\" INFOBOX \"DISTRUGGO\"
     CC \"Core\" DELETE_CONNECTOR modelid:(id_model) objid:(id_conn)
     EXIT -1
    }
@@ -1907,12 +1857,11 @@ ON_EVENT \"AfterCreateModelingConnector\" {
  SETL str_objids:(objids)
  
  FOR str_objid in:(str_objids) sep:\" \" {
-  # CC \"Core\" debug GET_OBJ_NAME objid:(VAL str_objid)
   CC \"Core\" GET_CLASS_ID objid:(VAL str_objid)    
   CC \"Core\" GET_CLASS_NAME classid:(classid)
      
   IF (str_classname = \"AND\" OR str_classname = \"OR\" OR str_classname = \"XSSA\" OR str_classna"
-   "me = \"XSA\" OR str_classname = \"OSA\") {
+  "me = \"XSA\" OR str_classname = \"OSA\") {
    IF (classname != str_classname) {
     IF (classname = \"DOInput\" OR classname = \"DOOutput\") {
 
@@ -1924,14 +1873,14 @@ ON_EVENT \"AfterCreateModelingConnector\" {
   }
 
   IF (str_classname = \"Mandatory\" OR str_classname = \"Optional\" OR str_classname = \"Domain\" "
-   "OR str_classname = \"SpecialCase\") {
+  "OR str_classname = \"SpecialCase\") {
    IF (classname = \"OR\" OR classname = \"AND\" OR classname = \"XSSA\" OR classname = \"XSA\" OR"
-    " classname = \"OSA\") {
+   " classname = \"OSA\") {
     CC \"Core\" DELETE_CONNECTOR modelid:(id_model) objid:(id_conn)
     EXIT -1
    }
   }
- }  
+ }
 }
 
 #ITEM \"Hello World\"
@@ -1946,23 +1895,13 @@ PRESET_PSM platform:(\"ThingsBoard\")
 ITEM \"Losant\" modeling:\"Conversion\"
 PRESET_PSM platform:(\"Losant\")
 
-#ITEM \"Generate files\" modeling:\"Conversion\"
-#PSM_TO_FILE
-
 ITEM \"Convertion in code\" modeling: \"Generate the Variant\"
 PSM_TO_FILE
 
 ITEM \"PIM to PSM\" modeling: \"Generate the Variant\"
 PIM_TO_PSM
 
-#EXECUTE file:(\"\\\\Users\\\\Luca\\\\Desktop\\\\ADOxx course\\\\AdoScript\\\\convert.asc\")
-#EXECUTE file:(\"\\\\Users\\\\Luca\\\\convert.asc\")
-#ITEM \"Prova\" modeling:\"Conversion\"
-#EXECUTE file:(\"\\\\Users\\\\Luca\\\\Desktop\\\\ADOxx course\\\\AdoScript\\\\prova.asc\")
-#EXECUTE file:(\"\\\\Users\\\\Luca\\\\prova.asc\")\"
-
 ITEM \"Operations\" modeling: \"Generate devices operations\"
-#EXECUTE file:(\"C:\\\\Users\\\\arian\\\\Documents\\\\Dottorato\\\\FloWare\\\\operation.asc\")
 EXECUTE file:(\"db:\\\\operation.asc\")"
 
 ATTRIBUTE <Agent definition>
