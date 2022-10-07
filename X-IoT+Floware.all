@@ -1791,9 +1791,9 @@ EXECUTE file:(\"db:\\\\ASC_GlobalFunctions_JSON.asc\")
 EXECUTE file:(\"db:\\\\ASC_RandomDistributions.asc\")
 EXECUTE file:(\"db:\\\\translator.asc\")
 EXECUTE file:(\"db:\\\\mapKeySetFunctions_v2.asc\")
-#EXECUTE file:(\"db:\\\\PIM_TO_PSM.asc\")
-#EXECUTE file:(\"db:\\\\PSM_TO_FILE.asc\")
-#EXECUTE file:(\"db:\\\\PSM_TYPES.asc\")
+EXECUTE file:(\"db:\\\\PIM_TO_PSM.asc\")
+EXECUTE file:(\"db:\\\\PSM_TO_FILE.asc\")
+EXECUTE file:(\"db:\\\\PSM_TYPES.asc\")
 }
 
 ON_EVENT \"AfterEditAttributeValue\" {
@@ -1883,10 +1883,6 @@ ON_EVENT \"AfterCreateModelingConnector\" {
  }
 }
 
-#ITEM \"Hello World\"
-#acquisition:\"Extras\" modeling:\"Extras\" analysis:\"Extras\"
-#EXECUTE file:(\"C:\\\\Users\\\\arian\\\\Documents\\\\Ado modelling\\\\platform_asc.asc\")
-
 # Create menu items
 
 ITEM \"ThingsBoard\" modeling:\"Conversion\"
@@ -1896,10 +1892,10 @@ ITEM \"Losant\" modeling:\"Conversion\"
 PRESET_PSM platform:(\"Losant\")
 
 ITEM \"Convertion in code\" modeling: \"Generate the Variant\"
-PSM_TO_FILE
+TRANSLATE_PSM_TO_FILE
 
 ITEM \"PIM to PSM\" modeling: \"Generate the Variant\"
-PIM_TO_PSM
+TRANSLATE_PIM_TO_PSM
 
 ITEM \"Operations\" modeling: \"Generate devices operations\"
 EXECUTE file:(\"db:\\\\operation.asc\")"
