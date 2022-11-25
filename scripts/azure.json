@@ -1,0 +1,351 @@
+{
+    "device": {
+        "element_reference": "device",
+        "specs": {
+            "is gateway": {
+                "type": "Boolean",
+                "description": "If this device is gateway"
+            }
+        },
+        "api": {
+            "get_device": {
+                "path": "api/device/[deviceId]",
+                "type": "GET",
+                "return": "JSON"
+            },
+            "create_device": {
+                "path": "api/device",
+                "type": "POST",
+                "return": "JSON"
+            }
+        }
+    },
+    "service": {
+        "element_reference": "device_profile",
+        "api": {
+            "create_device_profile": {
+                "path": "api/deviceProfile",
+                "type": "POST",
+                "return": "JSON"
+            },
+            "get_device_profile": {
+                "path": "api/deviceProfile/[deviceProfileId]",
+                "type": "GET",
+                "return": "JSON"
+            },
+            "get_default_device_profile": {
+                "path": "api/deviceProfileInfo/default",
+                "type": "GET",
+                "return": "JSON"
+            }
+        }
+    },
+    "attribute": [
+        {
+            "Humidity": {
+                "specs": {
+                }
+            },
+            "Temperature": {
+                "specs": {
+                    "Unit": {
+                        "type": "String",
+                        "description": "kelvin, celsius or fahrenheit"
+                    }
+                }
+            },
+            "Distance": {
+                "specs": {
+                    "Maximum": {
+                        "type": "Double",
+                        "description": "meters detectable"
+                    }
+                }
+            },
+            "Acceleration": {
+                "specs": {
+                    "Maximum": {
+                        "type": "Double",
+                        "description": "m/second squared detectable"
+                    }
+                }
+            },
+            "Pressure": {
+                "specs": {
+                    "Unit": {
+                        "type": "String",
+                        "description": "Bar or Pascal"
+                    }
+                }
+            },
+            "Area": {
+                "specs": {
+                    "Unit": {
+                        "type": "String",
+                        "description": "square (kilo/milli)metre or Acre or Hectare"
+                    }
+                }
+            },
+            "Mass": {
+                "specs": {
+                    "Unit": {
+                        "type": "String",
+                        "description": "(Kilo/Milli/Micro)Gram / tonne / slug"
+                    }
+                }
+            },
+            "Force": {
+                "specs": {
+                    "Unit": {
+                        "type": "String",
+                        "description": "Newton / Pound / Ounce / Ton"
+                    }
+                }
+            }
+        }
+    ],
+    "system": {
+        "element_reference": "asset",
+        "specs": {
+            "type": {
+                "type": "String",
+                "description": "Type of the asset"
+            },
+            "label": {
+                "type": "String",
+                "description": "Label of the asset"
+            }
+        },
+        "api": {
+            "get_asset_types": {
+                "path": "api/asset/types",
+                "type": "GET",
+                "return": "JSON"
+            },
+            "get_assets_of_type": {
+                "path": "api/tenant/assets?type=[objectType]&pageSize=9999&page=0",
+                "type": "GET",
+                "return": "JSON"
+            },
+            "get_asset": {
+                "path": "api/asset/[assetId]",
+                "type": "GET",
+                "return": "JSON"
+            },
+            "create_asset": {
+                "path": "api/asset",
+                "type": "POST",
+                "return": "JSON"
+            }
+        }
+    },
+    "dashboard": {
+        "element_reference": "asset",
+        "api": {
+            "create_dashboard": {
+                "path": "api/dashboard",
+                "type": "POST",
+                "return": "JSON"
+            },
+            "get_dashboard": {
+                "path": "api/dashboard/[dashboardId]",
+                "type": "GET",
+                "return": "JSON"
+            }
+        }
+    },
+    "rule_chain": {
+        "api": {
+            "create_rule_chain": {
+                "path": "api/ruleChain",
+                "type": "POST",
+                "return": "JSON"
+            },
+            "update_rule_chain": {
+                "path": "api/ruleChain/metadata?updateRelated=true",
+                "type": "POST",
+                "return": "JSON"
+            },
+            "get_rule_chain": {
+                "path": "api/ruleChain/[rulechainId]/metadata",
+                "type": "GET",
+                "return": "JSON"
+            }
+        }
+    },
+    "widget": [
+        {
+            "element_reference": "widget_type",
+            "line_chart": {
+                "specs": {
+                    "attributeKey": {
+                        "type": "String",
+                        "description": "Target attribute key"
+                    }
+                },
+                "config": {
+                    "isSystemType": true,
+                    "bundleAlias": "charts",
+                    "typeAlias": "basic_timeseries",
+                    "type": "timeseries",
+                    "title": "New widget",
+                    "image": null,
+                    "description": null,
+                    "sizeX": 8,
+                    "sizeY": 5,
+                    "config": {
+                        "timewindow": {
+                            "realtime": {
+                                "timewindowMs": 60000
+                            }
+                        },
+                        "showTitle": true,
+                        "backgroundColor": "#fff",
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "padding": "8px",
+                        "settings": {
+                            "shadowSize": 4,
+                            "fontColor": "#545454",
+                            "fontSize": 10,
+                            "xaxis": {
+                                "showLabels": true,
+                                "color": "#545454"
+                            },
+                            "yaxis": {
+                                "showLabels": true,
+                                "color": "#545454",
+                                "tickDecimals": 0
+                            },
+                            "grid": {
+                                "color": "#545454",
+                                "tickColor": "#DDDDDD",
+                                "verticalLines": true,
+                                "horizontalLines": true,
+                                "outlineWidth": 1
+                            },
+                            "stack": false,
+                            "tooltipIndividual": false,
+                            "smoothLines": false,
+                            "tooltipCumulative": false,
+                            "hideZeros": false,
+                            "showTooltip": true,
+                            "comparisonEnabled": false,
+                            "timeForComparison": "previousInterval",
+                            "xaxisSecond": {
+                                "axisPosition": "top",
+                                "showLabels": true
+                            },
+                            "customLegendEnabled": false
+                        },
+                        "title": "New Timeseries Line Chart",
+                        "dropShadow": true,
+                        "enableFullscreen": true,
+                        "titleStyle": {
+                            "fontSize": "16px",
+                            "fontWeight": 400
+                        },
+                        "useDashboardTimewindow": true,
+                        "datasources": []
+                    },
+                    "row": 0,
+                    "col": 0,
+                    "id": "ec944ae5-3b20-c430-40b6-f16224aa5814"
+                }
+            },
+            "map": {
+                "specs": {
+                    "latitudeKey": {
+                        "type": "String",
+                        "description": "Latitude attribute key"
+                    },
+                    "longitudeKey": {
+                        "type": "String",
+                        "description": "Longitude attribute key"
+                    }
+                },
+                "config": {
+                    "isSystemType": true,
+                    "bundleAlias": "maps_v2",
+                    "typeAlias": "openstreetmap",
+                    "type": "latest",
+                    "title": "New widget",
+                    "image": null,
+                    "description": null,
+                    "sizeX": 9,
+                    "sizeY": 7,
+                    "config": {
+                        "timewindow": {
+                            "realtime": {
+                                "timewindowMs": 60000
+                            }
+                        },
+                        "showTitle": true,
+                        "backgroundColor": "#fff",
+                        "color": "rgba(0, 0, 0, 0.87)",
+                        "padding": "8px",
+                        "settings": {
+                            "fitMapBounds": true,
+                            "latKeyName": "latitude",
+                            "lngKeyName": "longitude",
+                            "showLabel": true,
+                            "label": "${entityName}",
+                            "tooltipPattern": "<b>${entityName}</b><br/><br/><b>Latitude:</b> ${latitude:7}<br/><b>Longitude:</b> ${longitude:7}<br/><b>Temperature:</b> ${temperature} °C<br/><small>See advanced settings for details</small>",
+                            "markerImageSize": 34,
+                            "useColorFunction": true,
+                            "useMarkerImageFunction": true,
+                            "colorFunction": "var type = dsData[dsIndex]['Type'];\nif (type == 'colorpin') {\n\tvar temperature = dsData[dsIndex]['temperature'];\n\tif (typeof temperature !== undefined) {\n\t    var percent = (temperature + 60)/120 * 100;\n\t    return tinycolor.mix('blue', 'red', amount = percent).toHexString();\n\t}\n\treturn 'blue';\n}\n",
+                            "markerImageFunction": "var type = dsData[dsIndex]['Type'];\nif (type == 'thermometer') {\n\tvar res = {\n\t    url: images[0],\n\t    size: 40\n\t}\n\tvar temperature = dsData[dsIndex]['temperature'];\n\tif (typeof temperature !== undefined) {\n\t    var percent = (temperature + 60)/120;\n\t    var index = Math.min(3, Math.floor(4 * percent));\n\t    res.url = images[index];\n\t}\n\treturn res;\n}",
+                            "color": "#fe7569",
+                            "mapProvider": "OpenStreetMap.Mapnik",
+                            "showTooltip": true,
+                            "autocloseTooltip": true,
+                            "tooltipFunction": "var deviceType = dsData[dsIndex]['Type'];\r\nif (typeof deviceType !== undefined) {\r\n    if (deviceType == \"energy meter\") {\r\n        return '<b>${entityName}</b><br/><b>Energy:</b> ${energy:2} kWt<br/>';\r\n    } else if (deviceType == \"thermometer\") {\r\n        return '<b>${entityName}</b><br/><b>Temperature:</b> ${temperature:2} °C<br/>';\r\n    }\r\n}",
+                            "labelFunction": "var deviceType = dsData[dsIndex]['Type'];\r\nif (typeof deviceType !== undefined) {\r\n    if (deviceType == \"energy meter\") {\r\n        return '<span style=\"color:orange;\">${entityName}, ${energy:2} kWt</span>';\r\n    } else if (deviceType == \"thermometer\") {\r\n        return '<span style=\"color:blue;\">${entityName}, ${temperature:2} °C</span>';\r\n    }\r\n}",
+                            "provider": "openstreet-map",
+                            "defaultCenterPosition": "0,0",
+                            "showTooltipAction": "click",
+                            "mapPageSize": 16384,
+                            "useTooltipFunction": false,
+                            "useCustomProvider": false,
+                            "useDefaultCenterPosition": false,
+                            "draggableMarker": false,
+                            "disableScrollZooming": false,
+                            "disableZoomControl": false,
+                            "useLabelFunction": false,
+                            "tooltipOffsetX": 0,
+                            "tooltipOffsetY": -1,
+                            "markerOffsetX": 0.5,
+                            "markerOffsetY": 1,
+                            "showPolygon": false,
+                            "showCircle": false,
+                            "useClusterMarkers": false,
+                            "polygonKeyName": "perimeter",
+                            "editablePolygon": false,
+                            "showPolygonLabel": false,
+                            "usePolygonColorFunction": false,
+                            "polygonOpacity": 0.2,
+                            "usePolygonStrokeColorFunction": false,
+                            "polygonStrokeOpacity": 1,
+                            "polygonStrokeWeight": 3,
+                            "showPolygonTooltip": false
+                        },
+                        "title": "New OpenStreetMap",
+                        "dropShadow": true,
+                        "enableFullscreen": true,
+                        "titleStyle": {
+                            "fontSize": "16px",
+                            "fontWeight": 400
+                        },
+                        "useDashboardTimewindow": true,
+                        "showLegend": false,
+                        "widgetStyle": {},
+                        "actions": {}
+                    },
+                    "row": 0,
+                    "col": 0,
+                    "id": "87ee4644-a6c2-ac87-919a-a89861ab4bf9"
+                }
+            }
+        }
+    ]
+}
