@@ -2,9 +2,9 @@
     "device": {
         "element_reference": "device",
         "specs": {
-            "is gateway": {
-                "type": "Boolean",
-                "description": "If this device is gateway"
+            "device group id": {
+                "type": "String",
+                "description": "Azure device group id"
             }
         },
         "api": {
@@ -105,16 +105,6 @@
     ],
     "system": {
         "element_reference": "asset",
-        "specs": {
-            "type": {
-                "type": "String",
-                "description": "Type of the asset"
-            },
-            "label": {
-                "type": "String",
-                "description": "Label of the asset"
-            }
-        },
         "api": {
             "get_asset_types": {
                 "path": "api/asset/types",
@@ -174,136 +164,90 @@
     },
     "widget": [
         {
-            "element_reference": "widget_type",
-            "line_chart": {
-                "specs": {
-                    "attributeKey": {
-                        "type": "String",
-                        "description": "Target attribute key"
-                    }
-                },
+            "Last Known Value (lkv)": {
                 "config": {
-                    "displayName": "Average temperature",
-                    "configuration": {
-                        "type": "lineChart",
-                        "capabilities": [
-                            {
-                                "capability": "temperature",
-                                "aggregateFunction": "avg"
-                            }
-                        ],
-                        "devices": [
-                        ],
-                        "group": "0fb6cf08-f03c-4987-93f6-72103e9f6100",
-                        "format": {
-                            "xAxisEnabled": true,
-                            "yAxisEnabled": true,
-                            "legendEnabled": true
+                    "displayName": "Root System Dashboard",
+                    "tiles": [
+                        {
+                            "displayName": "Device - Widget (Last Known Value)",
+                            "configuration": {
+                                "type": "lkv",
+                                "capabilities": [
+                                    {
+                                        "capability": "EnlightmentFunctionality",
+                                        "aggregateFunction": "avg"
+                                    }
+                                ], 
+                                "group": "b514a79f-1c9d-4647-9adf-d8953ca4f91a",
+                                "devices": [
+                                    "2cjxx3vw5wy"
+                                ],
+                                "format": {
+                                    "textSize": 14
+                                }
+                            },
+                            "x": 0,
+                            "y": 0,
+                            "width": 2,
+                            "height": 2
                         },
-                        "queryRange": {
-                            "type": "time",
-                            "duration": "PT30M",
-                            "resolution": "PT1M"
+                        {
+                            "displayName": "Documentation",
+                            "configuration": {
+                                "type": "markdown",
+                                "description": "Comprehensive help articles and links to more support.",
+                                "href": "https://aka.ms/iotcentral-pnp-docs",
+                                "image": "4d6c6373-0220-4191-be2e-d58ca2a289e1"
+                            },
+                            "x": 2,
+                            "y": 0,
+                            "width": 1,
+                            "height": 1
                         }
-                    },
-                    "x": 0,
-                    "y": 0,
-                    "width": 2,
-                    "height": 2
+                    ]
                 }
             },
-            "map": {
-                "specs": {
-                    "latitudeKey": {
-                        "type": "String",
-                        "description": "Latitude attribute key"
-                    },
-                    "longitudeKey": {
-                        "type": "String",
-                        "description": "Longitude attribute key"
-                    }
-                },
+            "Line Chart": {
                 "config": {
-                    "isSystemType": true,
-                    "bundleAlias": "maps_v2",
-                    "typeAlias": "openstreetmap",
-                    "type": "latest",
-                    "title": "New widget",
-                    "image": null,
-                    "description": null,
-                    "sizeX": 9,
-                    "sizeY": 7,
-                    "config": {
-                        "timewindow": {
-                            "realtime": {
-                                "timewindowMs": 60000
-                            }
+                    "displayName": "Root System Dashboard",
+                    "tiles": [
+                        {
+                            "displayName": "Device - Widget (Line chart)",
+                            "configuration": {
+                                "type": "lineChart",
+                                "capabilities": [
+                                    {
+                                        "capability": "EnlightmentFunctionality",
+                                        "aggregateFunction": "avg"
+                                    }
+                                ], 
+                                "group": "b514a79f-1c9d-4647-9adf-d8953ca4f91a",
+                                "devices": [
+                                    "2cjxx3vw5wy"
+                                ],
+                                "format": {
+                                    "textSize": 14
+                                }
+                            },
+                            "x": 0,
+                            "y": 0,
+                            "width": 2,
+                            "height": 2
                         },
-                        "showTitle": true,
-                        "backgroundColor": "#fff",
-                        "color": "rgba(0, 0, 0, 0.87)",
-                        "padding": "8px",
-                        "settings": {
-                            "fitMapBounds": true,
-                            "latKeyName": "latitude",
-                            "lngKeyName": "longitude",
-                            "showLabel": true,
-                            "label": "${entityName}",
-                            "tooltipPattern": "<b>${entityName}</b><br/><br/><b>Latitude:</b> ${latitude:7}<br/><b>Longitude:</b> ${longitude:7}<br/><b>Temperature:</b> ${temperature} °C<br/><small>See advanced settings for details</small>",
-                            "markerImageSize": 34,
-                            "useColorFunction": true,
-                            "useMarkerImageFunction": true,
-                            "colorFunction": "var type = dsData[dsIndex]['Type'];\nif (type == 'colorpin') {\n\tvar temperature = dsData[dsIndex]['temperature'];\n\tif (typeof temperature !== undefined) {\n\t    var percent = (temperature + 60)/120 * 100;\n\t    return tinycolor.mix('blue', 'red', amount = percent).toHexString();\n\t}\n\treturn 'blue';\n}\n",
-                            "markerImageFunction": "var type = dsData[dsIndex]['Type'];\nif (type == 'thermometer') {\n\tvar res = {\n\t    url: images[0],\n\t    size: 40\n\t}\n\tvar temperature = dsData[dsIndex]['temperature'];\n\tif (typeof temperature !== undefined) {\n\t    var percent = (temperature + 60)/120;\n\t    var index = Math.min(3, Math.floor(4 * percent));\n\t    res.url = images[index];\n\t}\n\treturn res;\n}",
-                            "color": "#fe7569",
-                            "mapProvider": "OpenStreetMap.Mapnik",
-                            "showTooltip": true,
-                            "autocloseTooltip": true,
-                            "tooltipFunction": "var deviceType = dsData[dsIndex]['Type'];\r\nif (typeof deviceType !== undefined) {\r\n    if (deviceType == \"energy meter\") {\r\n        return '<b>${entityName}</b><br/><b>Energy:</b> ${energy:2} kWt<br/>';\r\n    } else if (deviceType == \"thermometer\") {\r\n        return '<b>${entityName}</b><br/><b>Temperature:</b> ${temperature:2} °C<br/>';\r\n    }\r\n}",
-                            "labelFunction": "var deviceType = dsData[dsIndex]['Type'];\r\nif (typeof deviceType !== undefined) {\r\n    if (deviceType == \"energy meter\") {\r\n        return '<span style=\"color:orange;\">${entityName}, ${energy:2} kWt</span>';\r\n    } else if (deviceType == \"thermometer\") {\r\n        return '<span style=\"color:blue;\">${entityName}, ${temperature:2} °C</span>';\r\n    }\r\n}",
-                            "provider": "openstreet-map",
-                            "defaultCenterPosition": "0,0",
-                            "showTooltipAction": "click",
-                            "mapPageSize": 16384,
-                            "useTooltipFunction": false,
-                            "useCustomProvider": false,
-                            "useDefaultCenterPosition": false,
-                            "draggableMarker": false,
-                            "disableScrollZooming": false,
-                            "disableZoomControl": false,
-                            "useLabelFunction": false,
-                            "tooltipOffsetX": 0,
-                            "tooltipOffsetY": -1,
-                            "markerOffsetX": 0.5,
-                            "markerOffsetY": 1,
-                            "showPolygon": false,
-                            "showCircle": false,
-                            "useClusterMarkers": false,
-                            "polygonKeyName": "perimeter",
-                            "editablePolygon": false,
-                            "showPolygonLabel": false,
-                            "usePolygonColorFunction": false,
-                            "polygonOpacity": 0.2,
-                            "usePolygonStrokeColorFunction": false,
-                            "polygonStrokeOpacity": 1,
-                            "polygonStrokeWeight": 3,
-                            "showPolygonTooltip": false
-                        },
-                        "title": "New OpenStreetMap",
-                        "dropShadow": true,
-                        "enableFullscreen": true,
-                        "titleStyle": {
-                            "fontSize": "16px",
-                            "fontWeight": 400
-                        },
-                        "useDashboardTimewindow": true,
-                        "showLegend": false,
-                        "widgetStyle": {},
-                        "actions": {}
-                    },
-                    "row": 0,
-                    "col": 0,
-                    "id": "87ee4644-a6c2-ac87-919a-a89861ab4bf9"
+                        {
+                            "displayName": "Documentation",
+                            "configuration": {
+                                "type": "markdown",
+                                "description": "Comprehensive help articles and links to more support.",
+                                "href": "https://aka.ms/iotcentral-pnp-docs",
+                                "image": "4d6c6373-0220-4191-be2e-d58ca2a289e1"
+                            },
+                            "x": 2,
+                            "y": 0,
+                            "width": 1,
+                            "height": 1
+                        }
+                    ]
                 }
             }
         }
