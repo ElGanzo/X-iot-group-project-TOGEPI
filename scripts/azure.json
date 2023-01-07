@@ -1,0 +1,255 @@
+{
+    "device": {
+        "element_reference": "device",
+        "specs": {
+            "device group id": {
+                "type": "String",
+                "description": "Azure device group id"
+            }
+        },
+        "api": {
+            "get_device": {
+                "path": "api/device/[deviceId]",
+                "type": "GET",
+                "return": "JSON"
+            },
+            "create_device": {
+                "path": "api/device",
+                "type": "POST",
+                "return": "JSON"
+            }
+        }
+    },
+    "service": {
+        "element_reference": "device_profile",
+        "api": {
+            "create_device_profile": {
+                "path": "api/deviceProfile",
+                "type": "POST",
+                "return": "JSON"
+            },
+            "get_device_profile": {
+                "path": "api/deviceProfile/[deviceProfileId]",
+                "type": "GET",
+                "return": "JSON"
+            },
+            "get_default_device_profile": {
+                "path": "api/deviceProfileInfo/default",
+                "type": "GET",
+                "return": "JSON"
+            }
+        }
+    },
+    "attribute": [
+        {
+            "Humidity": {
+                "specs": {}
+            },
+            "Temperature": {
+                "specs": {
+                    "Unit": {
+                        "type": "String",
+                        "description": "kelvin, celsius or fahrenheit"
+                    }
+                }
+            },
+            "Distance": {
+                "specs": {
+                    "Maximum": {
+                        "type": "Double",
+                        "description": "meters detectable"
+                    }
+                }
+            },
+            "Acceleration": {
+                "specs": {
+                    "Maximum": {
+                        "type": "Double",
+                        "description": "m/second squared detectable"
+                    }
+                }
+            },
+            "Pressure": {
+                "specs": {
+                    "Unit": {
+                        "type": "String",
+                        "description": "Bar or Pascal"
+                    }
+                }
+            },
+            "Area": {
+                "specs": {
+                    "Unit": {
+                        "type": "String",
+                        "description": "square (kilo/milli)metre or Acre or Hectare"
+                    }
+                }
+            },
+            "Mass": {
+                "specs": {
+                    "Unit": {
+                        "type": "String",
+                        "description": "(Kilo/Milli/Micro)Gram / tonne / slug"
+                    }
+                }
+            },
+            "Force": {
+                "specs": {
+                    "Unit": {
+                        "type": "String",
+                        "description": "Newton / Pound / Ounce / Ton"
+                    }
+                }
+            }
+        }
+    ],
+    "system": {
+        "element_reference": "asset",
+        "api": {
+            "get_asset_types": {
+                "path": "api/asset/types",
+                "type": "GET",
+                "return": "JSON"
+            },
+            "get_assets_of_type": {
+                "path": "api/tenant/assets?type=[objectType]&pageSize=9999&page=0",
+                "type": "GET",
+                "return": "JSON"
+            },
+            "get_asset": {
+                "path": "api/asset/[assetId]",
+                "type": "GET",
+                "return": "JSON"
+            },
+            "create_asset": {
+                "path": "api/asset",
+                "type": "POST",
+                "return": "JSON"
+            }
+        }
+    },
+    "dashboard": {
+        "element_reference": "asset",
+        "api": {
+            "create_dashboard": {
+                "path": "api/dashboard",
+                "type": "POST",
+                "return": "JSON"
+            },
+            "get_dashboard": {
+                "path": "api/dashboard/[dashboardId]",
+                "type": "GET",
+                "return": "JSON"
+            }
+        }
+    },
+    "rule_chain": {
+        "api": {
+            "create_rule_chain": {
+                "path": "api/ruleChain",
+                "type": "POST",
+                "return": "JSON"
+            },
+            "update_rule_chain": {
+                "path": "api/ruleChain/metadata?updateRelated=true",
+                "type": "POST",
+                "return": "JSON"
+            },
+            "get_rule_chain": {
+                "path": "api/ruleChain/[rulechainId]/metadata",
+                "type": "GET",
+                "return": "JSON"
+            }
+        }
+    },
+    "widget": [
+        {
+            "Last Known Value (lkv)": {
+                "config": {
+                    "displayName": "Root System Dashboard",
+                    "tiles": [
+                        {
+                            "displayName": "Device - Widget (Last Known Value)",
+                            "configuration": {
+                                "type": "lkv",
+                                "capabilities": [
+                                    {
+                                        "capability": "EnlightmentFunctionality",
+                                        "aggregateFunction": "avg"
+                                    }
+                                ], 
+                                "group": "b514a79f-1c9d-4647-9adf-d8953ca4f91a",
+                                "devices": [
+                                    "2cjxx3vw5wy"
+                                ],
+                                "format": {
+                                    "textSize": 14
+                                }
+                            },
+                            "x": 0,
+                            "y": 0,
+                            "width": 2,
+                            "height": 2
+                        },
+                        {
+                            "displayName": "Documentation",
+                            "configuration": {
+                                "type": "markdown",
+                                "description": "Comprehensive help articles and links to more support.",
+                                "href": "https://aka.ms/iotcentral-pnp-docs",
+                                "image": "4d6c6373-0220-4191-be2e-d58ca2a289e1"
+                            },
+                            "x": 2,
+                            "y": 0,
+                            "width": 1,
+                            "height": 1
+                        }
+                    ]
+                }
+            },
+            "Line Chart": {
+                "config": {
+                    "displayName": "Root System Dashboard",
+                    "tiles": [
+                        {
+                            "displayName": "Device - Widget (Line chart)",
+                            "configuration": {
+                                "type": "lineChart",
+                                "capabilities": [
+                                    {
+                                        "capability": "EnlightmentFunctionality",
+                                        "aggregateFunction": "avg"
+                                    }
+                                ], 
+                                "group": "b514a79f-1c9d-4647-9adf-d8953ca4f91a",
+                                "devices": [
+                                    "2cjxx3vw5wy"
+                                ],
+                                "format": {
+                                    "textSize": 14
+                                }
+                            },
+                            "x": 0,
+                            "y": 0,
+                            "width": 2,
+                            "height": 2
+                        },
+                        {
+                            "displayName": "Documentation",
+                            "configuration": {
+                                "type": "markdown",
+                                "description": "Comprehensive help articles and links to more support.",
+                                "href": "https://aka.ms/iotcentral-pnp-docs",
+                                "image": "4d6c6373-0220-4191-be2e-d58ca2a289e1"
+                            },
+                            "x": 2,
+                            "y": 0,
+                            "width": 1,
+                            "height": 1
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
